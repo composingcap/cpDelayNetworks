@@ -2,9 +2,19 @@
 
 */
 
-outlets = 4;
-
-function makeCartMesh(length, width){
+outlets = 5;
+var meshType= "cartisian";
+var length = 0;
+var width = 0;
+var out = 0;
+var around = 0;
+var delaysByJunction; 
+var walls = 0;
+ 
+function makeCartMesh(l, w){
+	meshType= "cartisian";
+	length = l;
+	width = w;
 	outlet(0, ["a", 'clear']);
 	outlet(0, ["flip", 'clear']);
 	//Deternine number of delay lines and scattering junctions
@@ -14,8 +24,10 @@ function makeCartMesh(length, width){
 	outlet(1, ["nDelays", innerDelays + perimeter]);
 	outlet(1, ["nJunctions", length*width]); 
 	outlet(1, ["nWalls", perimeter]);
+	outlet(1, ["meshMode", meshType]);
+	outlet(1, ["dimentions", length, width]);
 	outlet(1, "go");
-	
+	walls = perimeter;
 	
 	var xDelays = (length-1)*width;
 	var yDelays = (width-1)*length;
@@ -106,8 +118,7 @@ function makeCartMesh(length, width){
 		}
 		
 		
-		cartMeshDt(length, width, 50, 50, 100, 0.9, 1.1, 0.8, 1.2);
-		
+		cartMeshDt(50, 50, 100, 0.9, 1.1, 0.8, 1.2);
 		outlet(3, "bang");
 	
 	}
@@ -123,7 +134,7 @@ function setA4(junction, left, right, top, bottom, coef){
 
 
 
-function cartMeshDt(length, width, centerDelay, deviation, wallDelay, wallPosL, wallPosR, wallPosT, wallPosB){
+function cartMeshDt(centerDelay, deviation, wallDelay, wallPosL, wallPosR, wallPosT, wallPosB){
 	//Do inner delays...
 	var innerDelays = (2*width*length-width-length)/2;
 	
@@ -162,20 +173,23 @@ function cartMeshDt(length, width, centerDelay, deviation, wallDelay, wallPosL, 
 	
 	}
 	
-function makePolarMesh(out, around){
-	
+function makePolarMesh(o, a){
+	meshType= "polar";
+	out = o;
+	around = a;
 	outlet(0, ["a", 'clear']);
 	outlet(0, ["flip", 'clear']);
 	//Deternine number of delay lines and scattering junctions
 	var nWalls = around;
 	var outDelays = around*out;
 	var aroundDelays = around*out;
-	
+	outlet(1, ["meshMode", meshType]);
 	outlet(1, ["nDelays", nWalls + outDelays*2+aroundDelays*2]);
 	outlet(1, ["nJunctions", 1+ out*around]); 
 	outlet(1, ["nWalls", nWalls]);
+	outlet(1, ["dimentions", out, around]);
 	outlet(1, "go");
-	
+	walls = around; 
 	//For the inner junction...
 	for (var i = 0; i < around; i++){
 		outlet(0, ["a", around*2+i, 0, 1/around*2]);
@@ -212,19 +226,21 @@ function makePolarMesh(out, around){
 			outlet(0, ["flip", delayReads[2], delayWrites[2],1]);
 			outlet(0, ["flip", delayReads[3], delayWrites[3],1]);
 			
+			
 			//post(i + " : " + delayReads + " || " + delayWrites + "\n");
 			
 			
 
 			}	
 	}
-	polarMeshDt(out, around, 50, 50, 25, 60, 70);
+	polarMeshDt(50, 50, 25, 60, 70);
 }
 
-function polarMeshDt(out, around, outDt, outDev, aroundDt, aroundDev, wallDt){
+function polarMeshDt(outDt, outDev, aroundDt, aroundDev, wallDt){
 	var nWalls = around;
 	var outDelays = around*out;
 	var aroundDelays = around*out;
+	
 	
 	for (var o = 0; o<out; o++){
 		for (var a = 0; a < around; a++){
@@ -247,3 +263,92 @@ function polarMeshDt(out, around, outDt, outDev, aroundDt, aroundDev, wallDt){
 		}
 	
 	}
+	
+function setDelayParams(){
+	var args = arrayfromargs();
+	if (meshType === "cartisian"){		
+		cartMeshDt(args[0], args[1], args[2], args[3], args[4], args[5], args[6]);
+		}
+	else if (meshType === "polar"){
+		polarMeshDt(args[0], args[1], args[2], args[3], args[4]);
+		}
+	}
+	
+function setDelayByAddress(address, dt){
+	if (meshType == "cartisian"){
+		lDelays = (length-1)*width;
+		wDelays = (width-1)*length;
+		if (address < lDelays){
+			outlet(2, ["delayTimes", address, dt]);
+			outlet(2, ["delayTimes", address+lDelays, dt]);
+			}
+		else if (address < (lDelays + wDelays)){
+			outlet(2, ["delayTimes", address+lDelays, dt]);
+			outlet(2, ["delayTimes", address+wDelays+lDelays, dt]);
+			}
+		else if (address < (lDelays + wDelays + walls)){
+			outlet(2, ["delayTimes", address+lDelays+wDelays, dt]);
+			}
+		else{
+			error("delay address: " + address + " does not exist");
+			}
+		
+		}
+	else if (meshType == "polar"){
+		oDelays = around*out;
+		aDelays = around*out;
+		if (address < oDelays){
+			outlet(2, ["delayTimes", address, dt]);
+			outlet(2, ["delayTimes", address+oDelays, dt]);
+			}
+		else if (address < aDelays+oDelays){
+			outlet(2, ["delayTimes", address+oDelays, dt]);
+			outlet(2, ["delayTimes", address+oDelays+aDelays, dt]);
+			}
+		else if (address < aDelays+oDelays+walls){
+			outlet(2, ["delayTimes", address+oDelays+aDelays, dt]);
+			} 
+		else{
+			error("delay address: " + address + " does not exist");
+			}
+		}
+	
+	}
+	
+	function getDelayIndices(){
+		
+			if (meshType == "cartisian"){
+				
+		lDelays = (length-1)*width;
+		wDelays = (width-1)*length;
+		for (var address = 0; address < lDelays+wDelays+walls; address++){
+		if (address < lDelays){
+			outlet(4, ["delayIndex", "length", address, address, address+lDelays]);
+			}
+		else if (address < (lDelays + wDelays)){
+			outlet(4, ["delayIndex", "width", address, address+lDelays,address+lDelays+oDelays]);
+			}
+		else if (address < (lDelays + wDelays + walls)){
+			outlet(4, ["delayIndex", "wall", address, address+lDelays+oDelays]);
+			}
+			}
+
+		
+		}
+	else if (meshType == "polar"){
+		oDelays = around*out;
+		aDelays = around*out;
+		for (var address = 0; address < oDelays+aDelays+walls; address++){
+		if (address < oDelays){			
+			outlet(4, ["delayIndex", "out", address, address, address+oDelays]);
+			}
+		else if (address < aDelays+oDelays){
+			outlet(4, ["delayIndex", "around", address, address+oDelays, address+oDelays+aDelays]);
+			}
+		else if (address < aDelays+oDelays+walls){
+			outlet(4, ["delayIndex", "wall", address, address+oDelays+aDelays]);
+			} 
+		}
+		
+		}
+		}
