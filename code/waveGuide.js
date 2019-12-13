@@ -10,13 +10,14 @@ var out = 0;
 var around = 0;
 var delaysByJunction; 
 var walls = 0;
+var coefs = [];
  
 function makeCartMesh(l, w){
 	meshType= "cartisian";
 	length = l;
 	width = w;
-	outlet(0, ["a", 'clear']);
-	outlet(0, ["flip", 'clear']);
+	//outlet(0, ["a", 'clear']);
+	//outlet(0, ["flip", 'clear']);
 	//Deternine number of delay lines and scattering junctions
 	var perimeter = (length+width)*2
 	var innerDelays = 2*(2*width*length-width-length);
@@ -107,17 +108,22 @@ function makeCartMesh(l, w){
 			
 			setA4(i, delayReads[0],delayReads[1],delayReads[2],delayReads[3], 0.5);
 			
-			outlet(0, ["flip", delayReads[0], delayWrites[0], 1]);
-			outlet(0, ["flip", delayReads[1], delayWrites[1], 1]);
-			outlet(0, ["flip", delayReads[2], delayWrites[2], 1]);
-			outlet(0, ["flip", delayReads[3], delayWrites[3], 1]);
+			//outlet(0, ["flip", delayReads[0], delayWrites[0], 1]);
+			//outlet(0, ["flip", delayReads[1], delayWrites[1], 1]);
+			//outlet(0, ["flip", delayReads[2], delayWrites[2], 1]);
+			//outlet(0, ["flip", delayReads[3], delayWrites[3], 1]);
+			
+			coefs.push(["flip", delayReads[0], delayWrites[0], 1]);
+			coefs.push(["flip", delayReads[1], delayWrites[1], 1]);
+			coefs.push(["flip", delayReads[2], delayWrites[2], 1]);
+			coefs.push(["flip", delayReads[3], delayWrites[3], 1]);
 			
 			 
 			
 		}
 		}
 		
-		
+		sendCoefs();
 		cartMeshDt(50, 50, 100, 0.9, 1.1, 0.8, 1.2);
 		outlet(3, "bang");
 	
@@ -125,10 +131,15 @@ function makeCartMesh(l, w){
 	
 	
 function setA4(junction, left, right, top, bottom, coef){
-	outlet(0, ["a", left, junction, coef]);
-	outlet(0, ["a", right, junction, coef]);
-	outlet(0, ["a", top, junction, coef]);
-	outlet(0, ["a", bottom, junction, coef]);
+	//outlet(0, ["a", left, junction, coef]);
+	//outlet(0, ["a", right, junction, coef]);
+	//outlet(0, ["a", top, junction, coef]);
+	//outlet(0, ["a", bottom, junction, coef]);
+	
+	coefs.push(["a", left, junction, coef]);
+	coefs.push(["a", right, junction, coef]);
+	coefs.push(["a", top, junction, coef]);
+	coefs.push(["a", bottom, junction, coef]);
 	}
 	
 
@@ -153,7 +164,7 @@ function cartMeshDt(centerDelay, deviation, wallDelay, wallPosL, wallPosR, wallP
 	
 	for (var i = 0; i< length; i++){
 		var dt = wallDelay*wallPosL;
-		outlet(2, ["delayTimes", i, dt]);
+		outlet(2, ["delayTimes", i, dt]);		
 		
 		var dt = wallDelay*wallPosR;
 		outlet(2, ["delayTimes", i+length, dt]);
@@ -177,8 +188,8 @@ function makePolarMesh(o, a){
 	meshType= "polar";
 	out = o;
 	around = a;
-	outlet(0, ["a", 'clear']);
-	outlet(0, ["flip", 'clear']);
+	//outlet(0, ["a", 'clear']);
+	//outlet(0, ["flip", 'clear']);
 	//Deternine number of delay lines and scattering junctions
 	var nWalls = around;
 	var outDelays = around*out;
@@ -192,8 +203,11 @@ function makePolarMesh(o, a){
 	walls = around; 
 	//For the inner junction...
 	for (var i = 0; i < around; i++){
-		outlet(0, ["a", around*2+i, 0, 1/around*2]);
-		outlet(0, ["flip", around*2+i, i, 1]);
+		//outlet(0, ["a", around*2+i, 0, 1/around*2]);
+		//outlet(0, ["flip", around*2+i, i, 1]);
+		
+		coefs.push(["a", around*2+i, 0, 1/around*2]);
+		coefs.push(["flip", around*2+i, i, 1]);
 	}
 	
 	//For the rest, go around then out;
@@ -221,10 +235,15 @@ function makePolarMesh(o, a){
 				}
 				
 			setA4(i, delayReads[2], delayReads[3], delayReads[0], delayReads[1], 0.5);
-			outlet(0, ["flip", delayReads[0], delayWrites[0],1]);
-			outlet(0, ["flip", delayReads[1], delayWrites[1],1]);
-			outlet(0, ["flip", delayReads[2], delayWrites[2],1]);
-			outlet(0, ["flip", delayReads[3], delayWrites[3],1]);
+			//outlet(0, ["flip", delayReads[0], delayWrites[0],1]);
+			//outlet(0, ["flip", delayReads[1], delayWrites[1],1]);
+			//outlet(0, ["flip", delayReads[2], delayWrites[2],1]);
+			//outlet(0, ["flip", delayReads[3], delayWrites[3],1]);
+			
+			coefs.push(["flip", delayReads[0], delayWrites[0],1]);
+			coefs.push(["flip", delayReads[1], delayWrites[1],1]);
+			coefs.push(["flip", delayReads[2], delayWrites[2],1]);
+			coefs.push(["flip", delayReads[3], delayWrites[3],1]);
 			
 			
 			//post(i + " : " + delayReads + " || " + delayWrites + "\n");
@@ -233,7 +252,9 @@ function makePolarMesh(o, a){
 
 			}	
 	}
+	sendCoefs();
 	polarMeshDt(50, 50, 25, 60, 70);
+	outlet(3, "bang");
 }
 
 function polarMeshDt(outDt, outDev, aroundDt, aroundDev, wallDt){
@@ -352,3 +373,15 @@ function setDelayByAddress(address, dt){
 		
 		}
 		}
+		
+function sendCoefs(){
+	var nCoefs = coefs.length;
+	outlet(0, ["a", 'clear']);
+	outlet(0, ["flip", 'clear']);
+	
+	for (var i = 0; i < nCoefs; i++){
+		
+		outlet(0, coefs[i]);
+		}
+	
+	}
