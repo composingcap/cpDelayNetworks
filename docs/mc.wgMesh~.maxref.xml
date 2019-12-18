@@ -41,8 +41,22 @@
 	</outletlist>
 
 	<!--ARGUMENTS-->
-
 	<objarglist>
+
+	<objarg name='typeOfMesh'>
+		<digest>types are polar or cartisian</digest>
+		<description>types are polar or cartisian</description>
+	</objarg>
+	<objarg name='size1'>
+		<digest>length or around</digest>
+		<description>length or around</description>
+	</objarg>
+	<objarg name='size2'>
+		<digest>width or out</digest>
+		<description>width or out</description>
+	</objarg>
+
+
 
 	</objarglist>
 
