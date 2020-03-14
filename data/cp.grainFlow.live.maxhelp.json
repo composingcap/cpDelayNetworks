@@ -5,99 +5,24 @@
 			"1" : 			{
 				"id" : 1,
 				"data" : 				{
-					"cp.grainFlow.Gui::Quantize Rate to Semi" : [ 5.0 ],
-					"cp.grainFlow.Gui::Window Read Bias" : [ 0.0 ],
-					"cp.grainFlow.Gui::cycleOffsetPerGrain" : [ 0.0 ],
-					"cp.grainFlow.Gui::cyclePeriod" : [ 0.1 ],
-					"cp.grainFlow.Gui::direction" : [ 2.0 ],
-					"cp.grainFlow.Gui::glisson" : [ 0.0 ],
-					"cp.grainFlow.Gui::glissonRandom" : [ 0.0 ],
-					"cp.grainFlow.Gui::grainsPerCycle" : [ 25 ],
-					"cp.grainFlow.Gui::playRate" : [ 1.0 ],
-					"cp.grainFlow.Gui::playRateRandom" : [ 1.0 ],
-					"cp.grainFlow.Gui::randomOffsetPerGrain" : [ 1.0 ],
-					"cp.grainFlow.Gui::rateOffset" : [ 0.0 ],
-					"cp.grainFlow.Gui::space" : [ 0.0 ],
-					"cp.grainFlow.Gui::spaceRandom" : [ 0.0 ],
-					"cp.grainFlow.Gui::syncDeviation" : [ 0.0 ],
-					"cp.grainFlow.Gui::traversalOffsetPerGrainMs" : [ 0.0 ],
-					"cp.grainFlow.Gui::traversalRansomMs" : [ 1000.0 ],
-					"cp.grainFlow.Gui::window" : [ 0 ]
-				}
-
-			}
-,
-			"2" : 			{
-				"id" : 2,
-				"data" : 				{
-					"cp.grainFlow.Gui::Quantize Rate to Semi" : [ 0.0 ],
-					"cp.grainFlow.Gui::Window Read Bias" : [ 0.0 ],
-					"cp.grainFlow.Gui::cycleOffsetPerGrain" : [ 0.0 ],
-					"cp.grainFlow.Gui::cyclePeriod" : [ 0.1 ],
-					"cp.grainFlow.Gui::direction" : [ 2.0 ],
-					"cp.grainFlow.Gui::glisson" : [ 0.0 ],
-					"cp.grainFlow.Gui::glissonRandom" : [ -2.0 ],
-					"cp.grainFlow.Gui::grainsPerCycle" : [ 5 ],
-					"cp.grainFlow.Gui::playRate" : [ 1.0 ],
-					"cp.grainFlow.Gui::playRateRandom" : [ 1.0 ],
-					"cp.grainFlow.Gui::randomOffsetPerGrain" : [ 1.0 ],
-					"cp.grainFlow.Gui::rateOffset" : [ 0.0 ],
-					"cp.grainFlow.Gui::space" : [ 0.0 ],
-					"cp.grainFlow.Gui::spaceRandom" : [ 0.0 ],
-					"cp.grainFlow.Gui::syncDeviation" : [ 1.0 ],
-					"cp.grainFlow.Gui::traversalOffsetPerGrainMs" : [ 0.0 ],
-					"cp.grainFlow.Gui::traversalRansomMs" : [ 1000.0 ],
-					"cp.grainFlow.Gui::window" : [ 5 ]
-				}
-
-			}
-,
-			"3" : 			{
-				"id" : 3,
-				"data" : 				{
-					"cp.grainFlow.Gui::Quantize Rate to Semi" : [ 7.0 ],
-					"cp.grainFlow.Gui::Window Read Bias" : [ -2.0 ],
-					"cp.grainFlow.Gui::cycleOffsetPerGrain" : [ 0.0 ],
-					"cp.grainFlow.Gui::cyclePeriod" : [ 0.01 ],
-					"cp.grainFlow.Gui::direction" : [ 0.0 ],
-					"cp.grainFlow.Gui::glisson" : [ 0.0 ],
-					"cp.grainFlow.Gui::glissonRandom" : [ 0.0 ],
-					"cp.grainFlow.Gui::grainsPerCycle" : [ 10 ],
-					"cp.grainFlow.Gui::playRate" : [ 1.0 ],
-					"cp.grainFlow.Gui::playRateRandom" : [ 5.0 ],
-					"cp.grainFlow.Gui::randomOffsetPerGrain" : [ 1.0 ],
-					"cp.grainFlow.Gui::rateOffset" : [ 0.0 ],
-					"cp.grainFlow.Gui::space" : [ 0.1 ],
-					"cp.grainFlow.Gui::spaceRandom" : [ 0.0 ],
-					"cp.grainFlow.Gui::syncDeviation" : [ 1.0 ],
-					"cp.grainFlow.Gui::traversalOffsetPerGrainMs" : [ 0.0 ],
-					"cp.grainFlow.Gui::traversalRansomMs" : [ 500.0 ],
-					"cp.grainFlow.Gui::window" : [ 6 ]
-				}
-
-			}
-,
-			"4" : 			{
-				"id" : 4,
-				"data" : 				{
-					"cp.grainFlow.Gui::Quantize Rate to Semi" : [ 0.0 ],
-					"cp.grainFlow.Gui::Window Read Bias" : [ 0.0 ],
-					"cp.grainFlow.Gui::cycleOffsetPerGrain" : [ 0.25 ],
-					"cp.grainFlow.Gui::cyclePeriod" : [ 0.1 ],
-					"cp.grainFlow.Gui::direction" : [ 0.0 ],
-					"cp.grainFlow.Gui::glisson" : [ 0.0 ],
-					"cp.grainFlow.Gui::glissonRandom" : [ 0.0 ],
-					"cp.grainFlow.Gui::grainsPerCycle" : [ 25 ],
-					"cp.grainFlow.Gui::playRate" : [ 1.0 ],
-					"cp.grainFlow.Gui::playRateRandom" : [ 0.0 ],
-					"cp.grainFlow.Gui::randomOffsetPerGrain" : [ 0.0029 ],
-					"cp.grainFlow.Gui::rateOffset" : [ -0.0082 ],
-					"cp.grainFlow.Gui::space" : [ 0.0 ],
-					"cp.grainFlow.Gui::spaceRandom" : [ 0.0 ],
-					"cp.grainFlow.Gui::syncDeviation" : [ 0.0 ],
-					"cp.grainFlow.Gui::traversalOffsetPerGrainMs" : [ 0.0 ],
-					"cp.grainFlow.Gui::traversalRansomMs" : [ 0.0 ],
-					"cp.grainFlow.Gui::window" : [ 6 ]
+					"cp.grainFlow.live.Gui::Quantize Rate to Semi" : [ 0.0 ],
+					"cp.grainFlow.live.Gui::Window Read Bias" : [ 0.0 ],
+					"cp.grainFlow.live.Gui::cycleOffsetPerGrain" : [ 0.0 ],
+					"cp.grainFlow.live.Gui::cyclePeriod" : [ 0.1 ],
+					"cp.grainFlow.live.Gui::direction" : [ 2.0 ],
+					"cp.grainFlow.live.Gui::glisson" : [ 0.0 ],
+					"cp.grainFlow.live.Gui::glissonRandom" : [ 0.0 ],
+					"cp.grainFlow.live.Gui::grainsPerCycle" : [ 25 ],
+					"cp.grainFlow.live.Gui::playRate" : [ 1.0 ],
+					"cp.grainFlow.live.Gui::playRateRandom" : [ 1.0 ],
+					"cp.grainFlow.live.Gui::randomOffsetPerGrain" : [ 1.0 ],
+					"cp.grainFlow.live.Gui::rateOffset" : [ 0.0 ],
+					"cp.grainFlow.live.Gui::space" : [ 0.0 ],
+					"cp.grainFlow.live.Gui::spaceRandom" : [ 0.0 ],
+					"cp.grainFlow.live.Gui::syncDeviation" : [ 0.0 ],
+					"cp.grainFlow.live.Gui::traversalOffsetPerGrainMs" : [ 0.0 ],
+					"cp.grainFlow.live.Gui::traversalRansomMs" : [ 1000.0 ],
+					"cp.grainFlow.live.Gui::window" : [ 0 ]
 				}
 
 			}
