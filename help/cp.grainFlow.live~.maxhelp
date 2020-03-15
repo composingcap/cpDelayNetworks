@@ -4,13 +4,13 @@
 		"appversion" : 		{
 			"major" : 8,
 			"minor" : 1,
-			"revision" : 2,
+			"revision" : 3,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 100.0, 100.0, 748.0, 1150.0 ],
+		"rect" : [ 100.0, 85.0, 748.0, 953.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 10.0,
@@ -39,25 +39,61 @@
 		"subpatcher_template" : "minimal",
 		"boxes" : [ 			{
 				"box" : 				{
-					"id" : "obj-5",
+					"id" : "obj-14",
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 230.0, 672.0, 126.0, 21.0 ],
-					"text" : "1289_flow_1"
+					"patching_rect" : [ 647.0, 348.0, 34.0, 21.0 ],
+					"text" : "write"
 				}
 
 			}
 , 			{
 				"box" : 				{
-					"id" : "obj-3",
+					"id" : "obj-10",
 					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "bang" ],
+					"patching_rect" : [ 553.0, 103.0, 54.0, 21.0 ],
+					"text" : "loadbang"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-9",
+					"linecount" : 3,
+					"maxclass" : "message",
 					"numinlets" : 2,
-					"numoutlets" : 2,
-					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 246.0, 635.0, 77.0, 21.0 ],
-					"text" : "route bufName"
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 560.0, 137.0, 124.0, 45.0 ],
+					"text" : "read cp.grainFlow.live.maxhelp, 1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"bgcolor" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
+					"bgcolor2" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
+					"bgfillcolor_angle" : 270.0,
+					"bgfillcolor_autogradient" : 0.0,
+					"bgfillcolor_color" : [ 0.996078431372549, 0.0, 0.0, 1.0 ],
+					"bgfillcolor_color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
+					"bgfillcolor_color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
+					"bgfillcolor_proportion" : 0.39,
+					"bgfillcolor_type" : "color",
+					"gradient" : 1,
+					"id" : "obj-6",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 4.0, 513.0, 35.0, 21.0 ],
+					"text" : "panic",
+					"textcolor" : [ 0.996078431372549, 0.996078431372549, 0.996078431372549, 1.0 ]
 				}
 
 			}
@@ -76,7 +112,7 @@
 					"numoutlets" : 2,
 					"offset" : [ 0.0, 0.0 ],
 					"outlettype" : [ "signal", "" ],
-					"patching_rect" : [ 137.0, 128.0, 385.0, 445.0 ],
+					"patching_rect" : [ 137.0, 128.0, 409.0, 453.0 ],
 					"varname" : "cp.grainFlow.live.Gui",
 					"viewvisibility" : 1
 				}
@@ -134,7 +170,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 4.0, 369.0, 53.0, 21.0 ],
+					"patching_rect" : [ 4.0, 369.0, 56.0, 21.0 ],
 					"text" : "freeze $1"
 				}
 
@@ -142,36 +178,26 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-40",
+					"linecount" : 3,
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 629.0, 173.0, 57.0, 21.0 ],
-					"text" : "writeagain"
+					"patching_rect" : [ 598.0, 201.0, 130.0, 45.0 ],
+					"text" : "write cp.grainFlow.live.maxhelp.json"
 				}
 
 			}
 , 			{
 				"box" : 				{
-					"id" : "obj-38",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 560.0, 169.0, 60.0, 21.0 ],
-					"text" : "loadmess 1"
-				}
-
-			}
-, 			{
-				"box" : 				{
+					"autorestore" : "cp.grainFlow.live.maxhelp.json",
 					"id" : "obj-37",
 					"linecount" : 2,
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 560.0, 233.0, 127.0, 34.0 ],
+					"patching_rect" : [ 560.0, 277.0, 139.0, 33.0 ],
 					"saved_object_attributes" : 					{
 						"client_rect" : [ 100, 100, 500, 600 ],
 						"parameter_enable" : 0,
@@ -191,7 +217,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 4,
 					"outlettype" : [ "preset", "int", "preset", "int" ],
-					"patching_rect" : [ 560.0, 108.0, 100.0, 40.0 ],
+					"patching_rect" : [ 543.0, 61.0, 100.0, 40.0 ],
 					"pattrstorage" : "cp.grainFlow.live.maxhelp"
 				}
 
@@ -203,7 +229,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 18.0, 70.0, 311.0, 45.0 ],
+					"patching_rect" : [ 18.0, 70.0, 311.0, 43.0 ],
 					"text" : "An easy to use live implimentation of cp.grainFlow~.  This abstraction creates an internal buffer, records to it, and keeps the granulator in sync."
 				}
 
@@ -234,7 +260,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 4.0, 295.0, 32.0, 21.0 ],
+					"patching_rect" : [ 4.0, 295.0, 33.0, 21.0 ],
 					"text" : "open"
 				}
 
@@ -258,7 +284,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 18.0, 13.0, 311.0, 45.0 ],
+					"patching_rect" : [ 18.0, 13.0, 311.0, 43.0 ],
 					"text" : "cp.grainFlow.live~"
 				}
 
@@ -271,22 +297,23 @@
 								"absolutepath" : "anton.aif",
 								"filename" : "anton.aif",
 								"filekind" : "audiofile",
+								"selection" : [ 0.0, 1.0 ],
 								"loop" : 1,
 								"content_state" : 								{
-									"mode" : [ "basic" ],
-									"formantcorrection" : [ 0 ],
-									"pitchshift" : [ 1.0 ],
-									"slurtime" : [ 0.0 ],
-									"originaltempo" : [ 120.0 ],
-									"speed" : [ 1.0 ],
-									"quality" : [ "basic" ],
 									"pitchcorrection" : [ 0 ],
 									"basictuning" : [ 440 ],
-									"formant" : [ 1.0 ],
+									"quality" : [ "basic" ],
 									"timestretch" : [ 0 ],
+									"speed" : [ 1.0 ],
+									"pitchshift" : [ 1.0 ],
 									"followglobaltempo" : [ 0 ],
+									"formant" : [ 1.0 ],
+									"formantcorrection" : [ 0 ],
+									"slurtime" : [ 0.0 ],
 									"originallengthms" : [ 0.0 ],
-									"originallength" : [ 0.0, "ticks" ]
+									"originaltempo" : [ 120.0 ],
+									"originallength" : [ 0.0, "ticks" ],
+									"mode" : [ "basic" ]
 								}
 
 							}
@@ -309,7 +336,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 64.0, 1036.0, 143.0, 21.0 ],
+					"patching_rect" : [ 64.0, 1036.0, 157.0, 21.0 ],
 					"text" : "mc.mixdown~ 2 @autogain 1"
 				}
 
@@ -320,7 +347,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 64.0, 1074.0, 49.0, 21.0 ],
+					"patching_rect" : [ 64.0, 1074.0, 53.0, 21.0 ],
 					"text" : "mc.dac~"
 				}
 
@@ -358,7 +385,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "multichannelsignal", "" ],
-					"patching_rect" : [ 64.0, 646.0, 135.0, 21.0 ],
+					"patching_rect" : [ 64.0, 646.0, 146.0, 21.0 ],
 					"text" : "cp.grainFlow.live~ 5000 15"
 				}
 
@@ -367,15 +394,6 @@
 		"lines" : [ 			{
 				"patchline" : 				{
 					"destination" : [ "obj-29", 0 ],
-					"order" : 1,
-					"source" : [ "obj-1", 1 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-3", 0 ],
-					"order" : 0,
 					"source" : [ "obj-1", 1 ]
 				}
 
@@ -389,8 +407,22 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-9", 0 ],
+					"source" : [ "obj-10", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-11", 0 ],
 					"source" : [ "obj-12", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-37", 0 ],
+					"source" : [ "obj-14", 0 ]
 				}
 
 			}
@@ -431,20 +463,6 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-5", 1 ],
-					"source" : [ "obj-3", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-37", 0 ],
-					"source" : [ "obj-38", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
 					"destination" : [ "obj-37", 0 ],
 					"source" : [ "obj-40", 0 ]
 				}
@@ -466,15 +484,29 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-1", 0 ],
+					"source" : [ "obj-6", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-12", 0 ],
 					"source" : [ "obj-7", 0 ]
 				}
 
 			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-37", 0 ],
+					"source" : [ "obj-9", 0 ]
+				}
+
+			}
  ],
 		"parameters" : 		{
-			"obj-2::obj-66" : [ "direction", "direction", 0 ],
 			"obj-7" : [ "mc.live.gain~", "mc.live.gain~", 0 ],
+			"obj-2::obj-66" : [ "direction", "direction", 0 ],
 			"parameterbanks" : 			{
 
 			}
@@ -483,42 +515,42 @@
 ,
 		"dependency_cache" : [ 			{
 				"name" : "cp.grainFlow.live~.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/cpDelayNetworks/patchers",
+				"bootpath" : "D:/Documents/Max 8/Packages/cpDelayNetworks/patchers",
 				"patcherrelativepath" : "../patchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "cp.grainFlow~.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/cpDelayNetworks/patchers",
+				"bootpath" : "D:/Documents/Max 8/Packages/cpDelayNetworks/patchers",
 				"patcherrelativepath" : "../patchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "cp.grainFlow.poly.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/cpDelayNetworks/patchers",
+				"bootpath" : "D:/Documents/Max 8/Packages/cpDelayNetworks/patchers",
 				"patcherrelativepath" : "../patchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "cp.grainFlow.voice.gendsp",
-				"bootpath" : "~/Documents/Max 8/Packages/cpDelayNetworks/code",
+				"bootpath" : "D:/Documents/Max 8/Packages/cpDelayNetworks/code",
 				"patcherrelativepath" : "../code",
 				"type" : "gDSP",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "cp.grainFlow.record~.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/cpDelayNetworks/patchers",
+				"bootpath" : "D:/Documents/Max 8/Packages/cpDelayNetworks/patchers",
 				"patcherrelativepath" : "../patchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "cp.grainFlow.record.gendsp",
-				"bootpath" : "~/Documents/Max 8/Packages/cpDelayNetworks/code",
+				"bootpath" : "D:/Documents/Max 8/Packages/cpDelayNetworks/code",
 				"patcherrelativepath" : "../code",
 				"type" : "gDSP",
 				"implicit" : 1
@@ -531,14 +563,14 @@
 			}
 , 			{
 				"name" : "cp.grainFlow.bufferView.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/cpDelayNetworks/patchers",
+				"bootpath" : "D:/Documents/Max 8/Packages/cpDelayNetworks/patchers",
 				"patcherrelativepath" : "../patchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "cp.grainFlow.live.Gui.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/cpDelayNetworks/patchers",
+				"bootpath" : "D:/Documents/Max 8/Packages/cpDelayNetworks/patchers",
 				"patcherrelativepath" : "../patchers",
 				"type" : "JSON",
 				"implicit" : 1
@@ -548,7 +580,6 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -559,16 +590,17 @@
 						"autogradient" : 0.0
 					}
 ,
-					"fontsize" : [ 10.0 ],
-					"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
-					"fontname" : [ "Futura Medium" ],
-					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
 					"fontface" : [ 0 ],
 					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontsize" : [ 10.0 ],
+					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
+					"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
 					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontname" : [ "Futura Medium" ],
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
