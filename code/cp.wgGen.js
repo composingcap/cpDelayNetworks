@@ -7,6 +7,9 @@ var around = 0;
 var delaysByJunction; 
 var walls = 0;
 var coefs = [];
+var innerDelays
+var outDelays;
+var aroundDelays;
  
 function makeCartMesh(l, w){
 	meshType= "cartisian";
@@ -15,7 +18,7 @@ function makeCartMesh(l, w){
 
 	//Deternine number of delay lines and scattering junctions
 	var perimeter = (length+width)*2
-	var innerDelays = 2*(2*width*length-width-length);
+	innerDelays = 2*(2*width*length-width-length);
 	
 	outlet(1, ["nDelays", innerDelays + perimeter]);
 	outlet(1, ["nJunctions", length*width]); 
@@ -24,7 +27,10 @@ function makeCartMesh(l, w){
 	outlet(1, ["dimentions", length, width]);
 	outlet(1, "go");
 	walls = perimeter;
-	
+	setTimeout(setCartMeshCoef,50);
+
+	}
+	function setCartMeshCoef(){
 	var xDelays = (length-1)*width;
 	var yDelays = (width-1)*length;
 	coefs = [];
@@ -185,8 +191,8 @@ function makePolarMesh(o, a){
 	//outlet(0, ["flip", 'clear']);
 	//Deternine number of delay lines and scattering junctions
 	var nWalls = around;
-	var outDelays = around*out;
-	var aroundDelays = around*out;
+	outDelays = around*out;
+	aroundDelays = around*out;
 	outlet(1, ["meshMode", meshType]);
 	outlet(1, ["nDelays", nWalls + outDelays*2+aroundDelays*2]);
 	outlet(1, ["nJunctions", 1+ out*around]); 
@@ -194,7 +200,14 @@ function makePolarMesh(o, a){
 	outlet(1, ["dimentions", out, around]);
 	outlet(1, "go");
 	walls = around; 
+	
+	setTimeout(setPolarMeshCoef, 50);
+	}
+	
+	
+	function setPolarMeshCoef(){
 	coefs = [];
+
 	//For the inner junction...
 	for (var i = 0; i < around; i++){
 		//outlet(0, ["a", around*2+i, 0, 1/around*2]);
@@ -383,3 +396,24 @@ function sendCoefs(){
 		}
 	
 	}
+	
+function setTimeout(task, timeout){
+	//timeout function from Jouge Suarex
+    this.allowExecution = false;
+    
+    var tsk = new Task(function (){
+            
+        if(this.allowExecution){
+            
+            task();
+            
+            arguments.callee.task.cancel();
+        }
+            
+        this.allowExecution = true;
+            
+    }, this);
+        
+    tsk.interval = timeout;
+    tsk.repeat(2);
+}
