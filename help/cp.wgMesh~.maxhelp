@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 257.0, 125.0, 1102.0, 832.0 ],
+		"rect" : [ 100.0, 100.0, 1102.0, 832.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 10.0,
@@ -496,7 +496,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 355.0, 633.0, 162.0, 55.0 ],
+					"patching_rect" : [ 355.0, 633.0, 165.0, 55.0 ],
 					"text" : "Sometime when changing sizes you need to change it twice.  There is some ordering error in the mesh code."
 				}
 
@@ -1871,7 +1871,7 @@
 					"outlettype" : [ "list", "float", "float", "float", "float", "list", "int" ],
 					"parameter_enable" : 0,
 					"patching_rect" : [ 555.0, 194.0, 256.0, 128.0 ],
-					"setfilter" : [ 2, 5, 1, 0, 0, 1012.52349853515625, 1.0, 0.977717757225037, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1, 5, 1, 0, 0, 7876.53173828125, 1.0, 0.731381773948669, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0, 5, 1, 1, 0, 13062.7431640625, 0.961105227470398, 0.415367364883423, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
+					"setfilter" : [ 2, 5, 1, 0, 0, 1012.52349853515625, 0.239694699645042, 0.977717757225037, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1, 5, 1, 0, 0, 7876.53173828125, 1.0, 0.731381773948669, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0, 5, 1, 1, 0, 13062.7431640625, 0.961105227470398, 0.415367364883423, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
 				}
 
 			}
@@ -2081,8 +2081,8 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "multichannelsignal", "" ],
-					"patching_rect" : [ 66.0, 370.0, 266.0, 21.0 ],
-					"text" : "cp.wgMesh~ polar 3 5 @wallRc 0.5 @scatterRc 0.8",
+					"patching_rect" : [ 66.0, 370.0, 283.0, 21.0 ],
+					"text" : "cp.wgMesh~ cartisian 3 3 @wallRc 0.5 @scatterRc 0.8",
 					"varname" : "mc.wgMesh~"
 				}
 
