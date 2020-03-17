@@ -1,0 +1,39 @@
+{
+	"author" : "Christopher Poovey",
+	"authors" : [  ],
+	"description" : "A collection of Max/MSP abstractions that build and help build feedback delay networks",
+	"displayname" : "",
+	"extends" : "",
+	"extensible" : 0,
+	"homepatcher" : "cpDelayNetworks.overview.maxpat",
+	"max_version_max" : "none",
+	"max_version_min" : "none",
+	"name" : "cpDelayNetworks",
+	"os" : 	{
+		"macintosh" : 		{
+			"platform" : [ "ia32", "x64" ],
+			"min_version" : "none"
+		}
+,
+		"windows" : 		{
+			"platform" : [ "ia32", "x64" ],
+			"min_version" : "none"
+		}
+
+	}
+,
+	"package_extra" : 	{
+
+	}
+,
+	"tags" : [ "physical modeling", "reverb","granulation", "fdn" ],
+	"version" : "0.a.1",
+	"website" : "",
+	"filelist" : 	{
+		"externals" : [],
+		"patchers" : [],
+		"help" : [  ],
+		"misc" : [ ],
+		"extras" : []
+	}
+}
