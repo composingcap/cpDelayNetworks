@@ -308,6 +308,7 @@ function setDelayParams(){
 	
 function setDelayByAddress(address, dt){
 	if (meshType == "cartisian"){
+		//Delays are parsed in pairs of length and width then walls.  They start from the top left
 		lDelays = (length-1)*width;
 		wDelays = (width-1)*length;
 		if (address < lDelays){
@@ -351,8 +352,8 @@ function setDelayByAddress(address, dt){
 		
 			if (meshType == "cartisian"){
 				
-		lDelays = (length-1)*width;
-		wDelays = (width-1)*length;
+		var lDelays = (length-1)*width;
+		var wDelays = (width-1)*length;
 		for (var address = 0; address < lDelays+wDelays+walls; address++){
 		if (address < lDelays){
 			outlet(4, ["delayIndex", "length", address, address, address+lDelays]);
@@ -368,8 +369,8 @@ function setDelayByAddress(address, dt){
 		
 		}
 	else if (meshType == "polar"){
-		oDelays = around*out;
-		aDelays = around*out;
+		var oDelays = around*out;
+		var aDelays = around*out;
 		for (var address = 0; address < oDelays+aDelays+walls; address++){
 		if (address < oDelays){			
 			outlet(4, ["delayIndex", "out", address, address, address+oDelays]);
