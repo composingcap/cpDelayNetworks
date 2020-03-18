@@ -5,26 +5,28 @@
 			"1" : 			{
 				"id" : 1,
 				"data" : 				{
-					"cp.grainNetController::Quantize Rate to Semi" : [ 7.0 ],
+					"cp.grainNetController::Quantize Rate to Semi" : [ 3.0 ],
 					"cp.grainNetController::Window Read Bias" : [ 0.0 ],
 					"cp.grainNetController::buffername" : [ "grainBuf1" ],
-					"cp.grainNetController::cycleOffsetPerGrain" : [ 0.0004 ],
-					"cp.grainNetController::cyclePeriod" : [ 2.000100000000001 ],
+					"cp.grainNetController::cycleOffsetPerGrain" : [ 0.0 ],
+					"cp.grainNetController::cyclePeriod" : [ 0.5 ],
 					"cp.grainNetController::direction" : [ 2.0 ],
-					"cp.grainNetController::glisson" : [ 0.0 ],
+					"cp.grainNetController::glisson" : [ -2.0 ],
 					"cp.grainNetController::glissonRandom" : [ 0.0 ],
-					"cp.grainNetController::grainsPerCycle" : [ 25 ],
+					"cp.grainNetController::grainsPerCycle" : [ 2 ],
 					"cp.grainNetController::playRate" : [ 1.0 ],
-					"cp.grainNetController::playRateRandom" : [ 0.0 ],
+					"cp.grainNetController::playRateRandom" : [ 5.0 ],
 					"cp.grainNetController::randomOffsetPerGrain" : [ 1.0 ],
 					"cp.grainNetController::rateOffset" : [ 0.0 ],
 					"cp.grainNetController::space" : [ 0.0 ],
-					"cp.grainNetController::spaceRandom" : [ 0.277 ],
+					"cp.grainNetController::spaceRandom" : [ 0.0 ],
 					"cp.grainNetController::syncDeviation" : [ 0.0 ],
 					"cp.grainNetController::traversalOffsetPerGrainMs" : [ 0.0 ],
 					"cp.grainNetController::traversalRansomMs" : [ 500.0 ],
 					"cp.grainNetController::window" : [ 0 ],
-					"functionBuffer::function" : [ 47999.0, 0.0, 1.0, 0.0, 0.0, 0, 0.0, 12642.593749999998181, 0.983050847457627, 0, -0.45, 16071.09375, 0.542372881355932, 0, 0.0, 18071.052083333332121, 0.644067796610169, 0, 0.0, 27213.71875, 0.0, 2, 0.0, 27213.71875, 0.0, 2, 0.0, 41213.427083333328483, 0.0, 2, 0.0, 41213.427083333328483, 0.0, 2, 0.0, 47998.999999999992724, 0.559322033898305, 0, 0.0, "curve" ]
+					"functionBuffer::function" : [ 47999.0, 0.0, 1.0, 0.0, 0.0, 0, 0.0, 0.0, 1.0, 0, 0.0, 12642.593749999998181, 0.983050847457627, 0, -0.45, 16071.09375, 0.542372881355932, 0, 0.0, 18071.052083333332121, 0.644067796610169, 0, 0.0, 27213.71875, 0.0, 2, 0.0, 27213.71875, 0.0, 2, 0.0, 41213.427083333328483, 0.0, 2, 0.0, 41213.427083333328483, 0.0, 2, 0.0, 47998.999999999992724, 0.559322033898305, 0, 0.0, "curve" ],
+					"mc.live.gain~" : [ -2.035983405300144 ],
+					"travMode" : [ "position" ]
 				}
 
 			}

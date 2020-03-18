@@ -39,6 +39,18 @@
 		"subpatcher_template" : "minimal",
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-2",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 851.0, 140.0, 29.5, 21.0 ],
+					"text" : "1"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-89",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
@@ -51,7 +63,7 @@
 					}
 ,
 					"text" : "autopattr",
-					"varname" : "u662003339"
+					"varname" : "u869004357"
 				}
 
 			}
@@ -411,6 +423,14 @@
 										"styles" : [ 											{
 												"name" : "Minimal",
 												"default" : 												{
+													"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
+													"fontname" : [ "Futura Medium" ],
+													"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+													"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
+													"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"fontface" : [ 0 ],
+													"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 													"bgfillcolor" : 													{
 														"type" : "color",
 														"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -421,16 +441,8 @@
 														"autogradient" : 0.0
 													}
 ,
-													"fontface" : [ 0 ],
-													"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-													"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 													"fontsize" : [ 10.0 ],
-													"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
-													"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
-													"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"fontname" : [ "Futura Medium" ],
-													"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 													"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ]
 												}
 ,
@@ -490,20 +502,20 @@
 												"selection" : [ 0.0, 1.0 ],
 												"loop" : 1,
 												"content_state" : 												{
+													"pitchshift" : [ 1.0 ],
 													"pitchcorrection" : [ 0 ],
 													"basictuning" : [ 440 ],
-													"quality" : [ "basic" ],
-													"timestretch" : [ 0 ],
-													"speed" : [ 1.0 ],
-													"pitchshift" : [ 1.0 ],
-													"followglobaltempo" : [ 0 ],
 													"formant" : [ 1.0 ],
-													"formantcorrection" : [ 0 ],
+													"speed" : [ 1.0 ],
+													"timestretch" : [ 0 ],
+													"followglobaltempo" : [ 0 ],
+													"mode" : [ "basic" ],
+													"quality" : [ "basic" ],
 													"slurtime" : [ 0.0 ],
+													"originallength" : [ 0.0, "ticks" ],
+													"formantcorrection" : [ 0 ],
 													"originallengthms" : [ 0.0 ],
 													"originaltempo" : [ 120.0 ],
-													"originallength" : [ 0.0, "ticks" ],
-													"mode" : [ "basic" ],
 													"play" : [ 0 ]
 												}
 
@@ -530,20 +542,20 @@
 												"selection" : [ 0.0, 1.0 ],
 												"loop" : 1,
 												"content_state" : 												{
+													"pitchshift" : [ 1.0 ],
 													"pitchcorrection" : [ 0 ],
 													"basictuning" : [ 440 ],
-													"quality" : [ "basic" ],
-													"timestretch" : [ 0 ],
-													"speed" : [ 1.0 ],
-													"pitchshift" : [ 1.0 ],
-													"followglobaltempo" : [ 0 ],
 													"formant" : [ 1.0 ],
-													"formantcorrection" : [ 0 ],
+													"speed" : [ 1.0 ],
+													"timestretch" : [ 0 ],
+													"followglobaltempo" : [ 0 ],
+													"mode" : [ "basic" ],
+													"quality" : [ "basic" ],
 													"slurtime" : [ 0.0 ],
+													"originallength" : [ 0.0, "ticks" ],
+													"formantcorrection" : [ 0 ],
 													"originallengthms" : [ 0.0 ],
 													"originaltempo" : [ 120.0 ],
-													"originallength" : [ 0.0, "ticks" ],
-													"mode" : [ "basic" ],
 													"play" : [ 0 ]
 												}
 
@@ -570,20 +582,20 @@
 												"selection" : [ 0.0, 1.0 ],
 												"loop" : 1,
 												"content_state" : 												{
+													"pitchshift" : [ 1.0 ],
 													"pitchcorrection" : [ 0 ],
 													"basictuning" : [ 440 ],
-													"quality" : [ "basic" ],
-													"timestretch" : [ 0 ],
-													"speed" : [ 1.0 ],
-													"pitchshift" : [ 1.0 ],
-													"followglobaltempo" : [ 0 ],
 													"formant" : [ 1.0 ],
-													"formantcorrection" : [ 0 ],
+													"speed" : [ 1.0 ],
+													"timestretch" : [ 0 ],
+													"followglobaltempo" : [ 0 ],
+													"mode" : [ "basic" ],
+													"quality" : [ "basic" ],
 													"slurtime" : [ 0.0 ],
+													"originallength" : [ 0.0, "ticks" ],
+													"formantcorrection" : [ 0 ],
 													"originallengthms" : [ 0.0 ],
 													"originaltempo" : [ 120.0 ],
-													"originallength" : [ 0.0, "ticks" ],
-													"mode" : [ "basic" ],
 													"play" : [ 0 ]
 												}
 
@@ -612,14 +624,14 @@
 									"patching_rect" : [ 299.46875, 249.5, 48.0, 136.0 ],
 									"saved_attribute_attributes" : 									{
 										"valueof" : 										{
+											"parameter_mmax" : 6.0,
+											"parameter_initial" : [ -70.0 ],
+											"parameter_shortname" : "mc.live.gain~[1]",
 											"parameter_type" : 0,
 											"parameter_unitstyle" : 4,
 											"parameter_mmin" : -70.0,
 											"parameter_longname" : "mc.live.gain~[1]",
-											"parameter_initial_enable" : 1,
-											"parameter_mmax" : 6.0,
-											"parameter_initial" : [ -70.0 ],
-											"parameter_shortname" : "mc.live.gain~[1]"
+											"parameter_initial_enable" : 1
 										}
 
 									}
@@ -781,6 +793,14 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
+									"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
+									"fontname" : [ "Futura Medium" ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+									"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"fontface" : [ 0 ],
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"bgfillcolor" : 									{
 										"type" : "color",
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -791,16 +811,8 @@
 										"autogradient" : 0.0
 									}
 ,
-									"fontface" : [ 0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"fontsize" : [ 10.0 ],
-									"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
-									"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontname" : [ "Futura Medium" ],
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ]
 								}
 ,
@@ -856,7 +868,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 16.1640625, 11.0, 222.0, 43.0 ],
+					"patching_rect" : [ 16.1640625, 11.0, 222.0, 45.0 ],
 					"text" : "cp.grainFlow~"
 				}
 
@@ -1086,11 +1098,11 @@
 					"pattrmode" : 1,
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
-							"parameter_type" : 2,
-							"parameter_longname" : "travMode",
 							"parameter_mmax" : 2,
 							"parameter_shortname" : "travMode",
-							"parameter_enum" : [ "sync", "position", "wavetable" ]
+							"parameter_enum" : [ "sync", "position", "wavetable" ],
+							"parameter_type" : 2,
+							"parameter_longname" : "travMode"
 						}
 
 					}
@@ -1328,7 +1340,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 796.0, 131.0, 122.0, 21.0 ],
+					"patching_rect" : [ 796.0, 205.0, 64.0, 21.0 ],
 					"saved_object_attributes" : 					{
 						"client_rect" : [ 100, 100, 500, 600 ],
 						"parameter_enable" : 0,
@@ -1336,8 +1348,8 @@
 						"storage_rect" : [ 200, 200, 800, 500 ]
 					}
 ,
-					"text" : "pattrstorage grainFlow",
-					"varname" : "grainFlow"
+					"text" : "pattrstorage",
+					"varname" : "u664004795"
 				}
 
 			}
@@ -1353,12 +1365,12 @@
 					"patching_rect" : [ 5.5, 849.5, 425.0, 132.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
+							"parameter_mmax" : 6.0,
+							"parameter_shortname" : "mc.live.gain~",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 4,
 							"parameter_mmin" : -70.0,
-							"parameter_longname" : "mc.live.gain~",
-							"parameter_mmax" : 6.0,
-							"parameter_shortname" : "mc.live.gain~"
+							"parameter_longname" : "mc.live.gain~"
 						}
 
 					}
@@ -1507,6 +1519,13 @@
 				"patchline" : 				{
 					"destination" : [ "obj-52", 0 ],
 					"source" : [ "obj-19", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-32", 0 ],
+					"source" : [ "obj-2", 0 ]
 				}
 
 			}
@@ -1821,10 +1840,10 @@
 			}
  ],
 		"parameters" : 		{
+			"obj-72::obj-31" : [ "mc.live.gain~[1]", "mc.live.gain~[1]", 0 ],
+			"obj-74::obj-66" : [ "direction", "direction", 0 ],
 			"obj-20" : [ "travMode", "travMode", 0 ],
 			"obj-9" : [ "mc.live.gain~", "mc.live.gain~", 0 ],
-			"obj-74::obj-66" : [ "direction", "direction", 0 ],
-			"obj-72::obj-31" : [ "mc.live.gain~[1]", "mc.live.gain~[1]", 0 ],
 			"parameterbanks" : 			{
 
 			}
@@ -1833,49 +1852,49 @@
 ,
 		"dependency_cache" : [ 			{
 				"name" : "cp.grainFlow.Gui.maxpat",
-				"bootpath" : "D:/Documents/Max 8/Packages/cpDelayNetworks/patchers",
+				"bootpath" : "~/Documents/Max 8/Packages/cpDelayNetworks/patchers",
 				"patcherrelativepath" : "../patchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "cp.grainFlow~maxhelp.json",
-				"bootpath" : "D:/Documents/Max 8/Packages/cpDelayNetworks/extras/delayNetworks",
-				"patcherrelativepath" : "../extras/delayNetworks",
+				"bootpath" : "~/Documents/Max 8/Packages/cpDelayNetworks/extras/cpDelayNetworks",
+				"patcherrelativepath" : "../extras/cpDelayNetworks",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "cp.grainFlow.Gui.bufferTraversal.maxpat",
-				"bootpath" : "D:/Documents/Max 8/Packages/cpDelayNetworks/patchers",
+				"bootpath" : "~/Documents/Max 8/Packages/cpDelayNetworks/patchers",
 				"patcherrelativepath" : "../patchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "cp.functionBuffer.maxpat",
-				"bootpath" : "D:/Documents/Max 8/Packages/cpDelayNetworks/patchers",
+				"bootpath" : "~/Documents/Max 8/Packages/cpDelayNetworks/patchers",
 				"patcherrelativepath" : "../patchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "cp.grainFlow~.maxpat",
-				"bootpath" : "D:/Documents/Max 8/Packages/cpDelayNetworks/patchers",
+				"bootpath" : "~/Documents/Max 8/Packages/cpDelayNetworks/patchers",
 				"patcherrelativepath" : "../patchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "cp.grainFlow.poly.maxpat",
-				"bootpath" : "D:/Documents/Max 8/Packages/cpDelayNetworks/patchers",
+				"bootpath" : "~/Documents/Max 8/Packages/cpDelayNetworks/patchers",
 				"patcherrelativepath" : "../patchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "cp.grainFlow.voice.gendsp",
-				"bootpath" : "D:/Documents/Max 8/Packages/cpDelayNetworks/code",
+				"bootpath" : "~/Documents/Max 8/Packages/cpDelayNetworks/code",
 				"patcherrelativepath" : "../code",
 				"type" : "gDSP",
 				"implicit" : 1
@@ -1888,7 +1907,7 @@
 			}
 , 			{
 				"name" : "goldberg3.mp3",
-				"bootpath" : "D:/Documents/Max 8/Packages/bach/media",
+				"bootpath" : "~/Documents/Max 8/Packages/bach/media",
 				"patcherrelativepath" : "../../bach/media",
 				"type" : "Mp3",
 				"implicit" : 1
@@ -1901,7 +1920,7 @@
 			}
 , 			{
 				"name" : "cp.grainFlow.record.gendsp",
-				"bootpath" : "D:/Documents/Max 8/Packages/cpDelayNetworks/code",
+				"bootpath" : "~/Documents/Max 8/Packages/cpDelayNetworks/code",
 				"patcherrelativepath" : "../code",
 				"type" : "gDSP",
 				"implicit" : 1
@@ -1918,6 +1937,14 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
+					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
+					"fontname" : [ "Futura Medium" ],
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
+					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontface" : [ 0 ],
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -1928,16 +1955,8 @@
 						"autogradient" : 0.0
 					}
 ,
-					"fontface" : [ 0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"fontsize" : [ 10.0 ],
-					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
-					"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontname" : [ "Futura Medium" ],
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ]
 				}
 ,
