@@ -3,14 +3,14 @@
 		"fileversion" : 1,
 		"appversion" : 		{
 			"major" : 8,
-			"minor" : 0,
-			"revision" : 8,
+			"minor" : 1,
+			"revision" : 3,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "dsp.gen",
-		"rect" : [ 344.0, 147.0, 1087.0, 857.0 ],
+		"rect" : [ 1340.0, 182.0, 1087.0, 857.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 10.0,
@@ -279,9 +279,9 @@
 			}
 , 			{
 				"box" : 				{
-					"code" : "Buffer multitap;\r\nBuffer binFeedback;\r\nData tap(samplerate*60);\r\nHistory position(0);\r\ninput = in1;\r\n\r\n\r\ntaps = dim(multitap);\r\naccum1 = 0;\r\naccum2 = 0;\r\nfbAccum= 0;\r\nfor (i = 0 ; i < taps; i+=1){\r\n\t\t\r\n\tsample = peek(tap, wrap(position-peek(multitap,i)/1000*samplerate, 0, dim(tap)-1));\r\n\tif ((i % 2) == 0) {\r\n\taccum1 += sample;\r\n\t}\r\n\telse{\r\n\taccum2 += sample;\r\n\t}\r\n\tfbAccum += (sample)*peek(binFeedback, i, boundmode=\"wrap\");\r\n\t}\r\n\r\n\t\r\n\t\r\nout1 = accum1/dim(multitap);\r\nout2 = accum2/dim(multitap);\r\nposition += 1;\r\nposition = wrap(position, 0, dim(tap)-1); \r\n\r\npoke(tap, input+fbAccum/dim(multitap), position); ",
+					"code" : "Buffer multitap;\r\nBuffer binFeedback;\r\nBuffer delayAmps;\r\nData tap(samplerate*60);\r\nHistory position(0);\r\ninput = in1;\r\n\r\n\r\ntaps = dim(multitap);\r\naccum1 = 0;\r\naccum2 = 0;\r\nfbAccum= 0;\r\nampLength = dim(delayAmps);\r\nthisAmp = 1;\r\nfor (i = 0 ; i < taps; i+=1){\r\n\t\r\n\tif (ampLength >= 1){\t\r\n\tthisAmp = peek(delayAmps, i/taps, index=\"phase\");\r\n\t}\r\n\telse{\r\n\t\tthisAmp = 1;\r\n\t\t}\t\r\n\t\t\r\n\tsample = thisAmp*peek(tap, wrap(position-peek(multitap,i)/1000*samplerate, 0, dim(tap)-1));\r\n\tif ((i % 2) == 0) {\r\n\taccum1 += sample;\r\n\t}\r\n\telse{\r\n\taccum2 += sample;\r\n\t}\r\n\tfbAccum += (sample)*peek(binFeedback, i, boundmode=\"wrap\");\r\n\t}\r\n\r\n\r\n\t\r\n\t\r\nout1 = accum1/dim(multitap);\r\nout2 = accum2/dim(multitap);\r\nposition += 1;\r\nposition = wrap(position, 0, dim(tap)-1); \r\n\r\npoke(tap, input+fbAccum/dim(multitap), position); ",
 					"fontface" : 0,
-					"fontname" : "Lucida Console",
+					"fontname" : "<Monospaced>",
 					"fontsize" : 10.0,
 					"id" : "obj-7",
 					"maxclass" : "codebox",
@@ -474,15 +474,17 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontface" : [ 0 ],
+					"fontsize" : [ 10.0 ],
 					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
 					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"fontname" : [ "Futura Medium" ],
 					"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
 					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontsize" : [ 10.0 ],
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontface" : [ 0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -492,9 +494,7 @@
 						"proportion" : 0.39,
 						"autogradient" : 0.0
 					}
-,
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontname" : [ "Futura Medium" ]
+
 				}
 ,
 				"parentstyle" : "",
