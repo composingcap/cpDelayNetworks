@@ -7,11 +7,14 @@ var around = 0;
 var delaysByJunction; 
 var walls = 0;
 var coefs = [];
-var innerDelays
+var innerDelays;
 var outDelays;
 var aroundDelays;
+var innerDelayOffset;
+var lengthOffset;
  
 function makeCartMesh(l, w){
+	outlet(2,"clearInfo");
 	meshType= "cartisian";
 	length = l;
 	width = w;
@@ -53,6 +56,7 @@ function makeCartMesh(l, w){
 				
 				delayReads[1] = xDelays + xAddress;
 				delayWrites[1] = innerDelays + y;
+				
 				
 				}
 				
@@ -122,6 +126,7 @@ function makeCartMesh(l, w){
 		cartMeshDt(50, 50, 100, 0.9, 1.1, 0.8, 1.2);
 		sendCoefs();
 		outlet(3, "bang");
+		outlet(2,"getInfo");
 
 	
 	}
@@ -144,7 +149,7 @@ function setA4(junction, left, right, top, bottom, coef){
 
 function cartMeshDt(centerDelay, deviation, wallDelay, wallPosL, wallPosR, wallPosT, wallPosB){
 	//Do inner delays...
-	var innerDelays = Math.floor((2*width*length-width-length)/2);
+	innerDelays = Math.floor((2*width*length-width-length)/2);
 	outlet(2, ["delayTimes", "clear"]);
 	for (var i = 0; i < innerDelays; i++){
 		
@@ -156,31 +161,94 @@ function cartMeshDt(centerDelay, deviation, wallDelay, wallPosL, wallPosR, wallP
 		outlet(2, ["delayTimes", i+innerDelays, dt]);
 		outlet(2, ["delayTimes", i+innerDelays*2, dt]);
 		outlet(2, ["delayTimes", i+innerDelays*3, dt]);
+		dtByJunction("junction", i, dt);
 		
 		}
-	var innerDelayOffset = innerDelays*4;
+	innerDelayOffset = innerDelays*4;
+	
+	var dtL = wallDelay*wallPosL;
+	var dtR = wallDelay*wallPosR;
+	var dtT = wallDelay*wallPosT;
+	var dtB = wallDelay*wallPosB;
+	
+	dtByJunction("wall", "left", dtL);
+	dtByJunction("wall", "right", dtR);
+	dtByJunction("wall", "top", dtT);
+	dtByJunction("wall", "bottom", dtB);
+
 	for (var i = innerDelayOffset; i< innerDelayOffset+length; i++){
-		var dt = wallDelay*wallPosL;
-		outlet(2, ["delayTimes", i, dt]);		
 		
-		var dt = wallDelay*wallPosR;
-		outlet(2, ["delayTimes", i+length, dt]);
+		outlet(2, ["delayTimes", i, dtL]);
+				
 		
+		outlet(2, ["delayTimes", i+length, dtR]);
 		}
 		lengthOffset = innerDelayOffset+length*2;
 	for (var i = lengthOffset ; i<lengthOffset+width; i++){
 		
-		var dt = wallDelay*wallPosB;
-		outlet(2, ["delayTimes", i, dt]);
 		
-		var dt = wallDelay*wallPosT;
-		outlet(2, ["delayTimes", i+width, dt]);
+		outlet(2, ["delayTimes", i, dtT]);
+		
+		
+		outlet(2, ["delayTimes", i+width, dtB]);
 		
 		}
 		outlet(2, ["delayTimes", "sort", -1, -1]);
 		outlet(2, ["delayTimes", "dump"]);
 	
 	
+	}
+
+function setDtByJunction(){
+
+	var args = arrayfromargs(arguments);
+	post(args);
+
+	if(meshType == "cartisian"){
+		if (args[0] == "junction"){
+			
+			var i = args[1];
+			var dt = args[2];
+			dtByJunction("junction", i, dt);
+			outlet(2, ["delayTimes", i, dt]);
+			outlet(2, ["delayTimes", i+innerDelays, dt]);
+			outlet(2, ["delayTimes", i+innerDelays*2, dt]);
+			outlet(2, ["delayTimes", i+innerDelays*3, dt]);
+			
+			
+			}
+		else if (args[0] == "wall"){
+			var side = args[1];
+			var dt = args[2];
+			if (side == "left"){
+				dtByJunction("wall", "left", dt);
+				for (var i = innerDelayOffset; i< innerDelayOffset+length; i++){
+						outlet(2, ["delayTimes", i, dt]);
+					}
+				}
+			else if (side == "right"){
+				dtByJunction("wall", "right", dt);
+				for (var i = innerDelayOffset; i< innerDelayOffset+length; i++){
+						outlet(2, ["delayTimes", i+length, dt]);
+					}
+				}
+			else if (side == "top"){
+				dtByJunction("wall", "top", dt);
+				for (var i = lengthOffset ; i<lengthOffset+width; i++){		
+		
+					outlet(2, ["delayTimes", i, dt]);
+					}
+				}
+			else if (side == "bottom"){
+				dtByJunction("wall", "bottom", dt);
+				for (var i = lengthOffset ; i<lengthOffset+width; i++){		
+		
+					outlet(2, ["delayTimes", i+width, dt]);
+					}
+				}
+			
+			}		
+		}
 	}
 	
 function makePolarMesh(o, a){
@@ -418,3 +486,7 @@ function setTimeout(task, timeout){
     tsk.interval = timeout;
     tsk.repeat(2);
 }
+
+function dtByJunction(type,i,dt){
+	outlet(2,["dtByJunction", type, i, dt]);
+	}
