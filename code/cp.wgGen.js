@@ -163,10 +163,9 @@ function cartMeshDt(centerDelay, deviation, wallDelay, wallPosL, wallPosR, wallP
 
 	outlet(2, ["delayTimes", "clear"]);
 	
-	//post(cartMeshMode + "\n");
 	
-	if (cartMeshMode == "old"){
-	for (var i = 0; i < nDelays; i++){
+	if (cartMeshMode === "old"){
+		for (var i = 0; i < jDelays; i++){
 		
 		var deltaCenter = Math.abs(i-jDelays/2)/(jDelays/2);	
 		
@@ -211,7 +210,7 @@ function cartMeshDt(centerDelay, deviation, wallDelay, wallPosL, wallPosR, wallP
 
 		}
 		
-		else if (cartMeshMode = "new"){
+		else if (cartMeshMode === "new"){
 			for (var i = 0; i < xDelayLines; i++){
 		
 				var deltaCenter = Math.abs(i-jDelays/2)/(jDelays/2);	
