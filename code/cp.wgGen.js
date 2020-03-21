@@ -1,5 +1,5 @@
 outlets = 5;
-var meshType= "cartisian";
+var meshType= "cartesian";
 var length = 0;
 var width = 0;
 var out = 0;
@@ -21,7 +21,7 @@ var yDelayLines;
  
 function makeCartMesh(l, w){
 	outlet(2,"clearInfo");
-	meshType= "cartisian";
+	meshType= "cartesian";
 	length = l;
 	width = w;
 
@@ -154,6 +154,7 @@ function setCartMeshMode(mode){
 
 function cartMeshDt(centerDelay, deviation, wallDelay, wallPosL, wallPosR, wallPosT, wallPosB){
 	//Do inner delays...
+	outlet(2, ["dyByJunction", "clear"])
 	jDelays = Math.floor((2*width*length-width-length)/2);
 	xDelayLines = (width-1)*length;
 	yDelayLines = (length-1) * width;
@@ -273,20 +274,22 @@ function setDelayByJunction(){
 	var args = arrayfromargs(arguments);
 
 
-	if(meshType == "cartisian"){
+	if(meshType == "cartesian"){
 		
 		var jToSet = Math.floor(args.length/3);
-		//post("number of junsctions to set... " + jToSet + "\n");
+	//	post("number of junsctions to set... " + jToSet + "\n");
 		
 		for(m = 0; m < jToSet; m++){
 			
 			
-			var type = args[0+m]
-			var i = args[1+m];
-			var dt = args[2+m];
+			var type = args[0+m*3]
+			var i = args[1+m*3];
+			var dt = args[2+m*3];
+			
+			//post("type: " + type +", i: " + i + ", dt: "+ dt +"\n"); 
 	
 		//post(cartMeshMode + "\n");
-		if(cartMeshMode = "old"){
+		if(cartMeshMode == "old"){
 		if (type == "junction"){
 			dtByJunction("junction", i, dt);
 			outlet(2, ["delayTimes", i, dt]);
@@ -327,15 +330,17 @@ function setDelayByJunction(){
 			
 			}
 			}		
-	else if (cartMeshMode = "new"){
-	
+	else if (cartMeshMode == "new"){
+			
 			if (type == "junction"){
 				if (i < xDelayLines){
+					//post("junction "+ i + " is xLine \n");
 				outlet(2, ["delayTimes", i, dt]);
 				outlet(2, ["delayTimes", i+xDelayLines, dt]);
 				dtByJunction("junction", i, dt);
 				}
 				else{
+					//post("junction "+ i + " is yLine \n");
 					outlet(2, ["delayTimes", i, dt]);
 					outlet(2, ["delayTimes", i+yDelayLines, dt]);
 					dtByJunction("junction", i, dt);
@@ -495,7 +500,7 @@ function polarMeshDt(outDt, outDev, aroundDt, aroundDev, wallDt){
 	
 function setDelayParams(){
 	var args = arrayfromargs();
-	if (meshType === "cartisian"){		
+	if (meshType === "cartesian"){		
 		cartMeshDt(args[0], args[1], args[2], args[3], args[4], args[5], args[6]);
 		}
 	else if (meshType === "polar"){
@@ -504,7 +509,7 @@ function setDelayParams(){
 	}
 	
 function setDelayByAddress(address, dt){
-	if (meshType == "cartisian"){
+	if (meshType == "cartesian"){
 		//Delays are parsed in pairs of length and width then walls.  They start from the top left
 		lDelays = (length-1)*width;
 		wDelays = (width-1)*length;
@@ -547,7 +552,7 @@ function setDelayByAddress(address, dt){
 	
 	function getDelayIndices(){
 		
-			if (meshType == "cartisian"){
+			if (meshType == "cartesian"){
 				
 		var lDelays = (length-1)*width;
 		var wDelays = (width-1)*length;
