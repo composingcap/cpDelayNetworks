@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 47.0, 179.0, 714.0, 668.0 ],
+		"rect" : [ 47.0, 100.0, 714.0, 668.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 10.0,
@@ -785,7 +785,8 @@
 						}
 
 					}
-
+,
+					"varname" : "number"
 				}
 
 			}
@@ -858,8 +859,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 79.5, 458.5, 191.0, 21.0 ],
-					"text" : "6 0 0.75, 8 1 0.75, 3 0 0.25, 5, 0 0.25"
+					"patching_rect" : [ 79.5, 458.5, 187.0, 21.0 ],
+					"text" : "6 0 0.75, 8 1 0.75, 3 0 0.25, 5 0 0.25"
 				}
 
 			}
@@ -892,7 +893,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 113.0, 146.0, 1139.0, 1015.0 ],
+						"rect" : [ 567.0, 212.0, 1139.0, 927.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 10.0,
@@ -919,6 +920,7 @@
 						"tags" : "",
 						"style" : "Minimal",
 						"subpatcher_template" : "minimal",
+						"visible" : 1,
 						"boxes" : [ 							{
 								"box" : 								{
 									"id" : "obj-7",
@@ -966,12 +968,12 @@
 									"id" : "obj-1",
 									"lockeddragscroll" : 0,
 									"maxclass" : "bpatcher",
-									"name" : "_cp.wgmesh.cart33gui.maxpat",
+									"name" : "_cp.wgmesh.cartgui.maxpat",
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"offset" : [ 0.0, 0.0 ],
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 378.5, 133.5, 723.0, 567.0 ],
+									"patching_rect" : [ 378.5, 133.5, 420.0, 547.0 ],
 									"viewvisibility" : 1
 								}
 
@@ -2912,7 +2914,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 366.0, 419.5, 87.0, 21.0 ],
+					"patching_rect" : [ 309.0, 431.5, 87.0, 21.0 ],
 					"text" : "s meshInfoHelp"
 				}
 
@@ -3100,7 +3102,7 @@
 					"numinlets" : 0,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 62.0, 330.0, 86.0, 21.0 ],
+					"patching_rect" : [ 120.0, 326.0, 86.0, 21.0 ],
 					"text" : "r tocpMeshHelp"
 				}
 
@@ -3279,7 +3281,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-69", 0 ],
-					"source" : [ "obj-11", 1 ]
+					"source" : [ "obj-11", 0 ]
 				}
 
 			}
