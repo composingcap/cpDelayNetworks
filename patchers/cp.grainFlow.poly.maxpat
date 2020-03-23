@@ -4,7 +4,7 @@
 		"appversion" : 		{
 			"major" : 8,
 			"minor" : 1,
-			"revision" : 2,
+			"revision" : 3,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
@@ -103,6 +103,10 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 255.5, 289.0, 43.0, 21.0 ],
+					"saved_object_attributes" : 					{
+						"attr_comment" : ""
+					}
+,
 					"text" : "out~ 4"
 				}
 
@@ -470,12 +474,12 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-13",
-					"linecount" : 39,
+					"linecount" : 73,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 393.0, 462.0, 458.0, 513.0 ],
-					"text" : "Buffer buf(); //Buffer to read\nBuffer env(); //Envelope Shape\nBuffer env2D(); //2D wavetable of envelopes\nBuffer windowOffsets(); //buffer of window offsets\nBuffer rates(); // buffer of rates\n\nParam envMode(0); // 0 is standard envelope read, 1 is a lookup from a 2D wavetable\nParam windowOffsetMode(0); //0 is algorythmic linear offset, 1 is read from a buffer based on voice with a random offset in ms, 3 is read from a buffer by voice with random effecting the read position from that buffer\nParam rateMode(0); // 0 is algorythmic, 1 is lookup with random offset, 2 is lookup with randomized lookup position\n\nParam env2DOffset(0);\nParam env2DPosition(0);\nParam env2DRandom(0);\nParam env2DNumber(1);\n\nParam travGlobalOffset(0); // Global Traversal offset in ms\nParam travRandom(0); // Traversal Random in ms\nParam travOffset(0); // Traversal offset in ms per voice\n\nParam windowOffset(0); // Grain offset on phasor per voice\nParam windowOffsetRandom(0); //Noise to the grain offset position\n\nParam space(0); //The amound of space for each cycle.  Set as a proportion.\nParam spaceRandom(0);\n\nParam rate(1); //playRate\nParam rateRandom(0);\nParam rateOffset(0);\n\nParam glisson(0);\nParam glissonRandom(0);\n\n\nParam randomPole(1); // 0 is biPolar, -1 is neg, +1 is pos\nParam phasorRate(1);\nParam phasorRateRandom(0);"
+					"patching_rect" : [ 396.0, 447.0, 458.0, 954.0 ],
+					"text" : "Buffer buf(); //Buffer to read\nBuffer env(); //Envelope Shape\nBuffer env2D(); //2D wavetable of envelopes\nBuffer windowOffsets(); //buffer of window offsets\nBuffer rates(); // buffer of rates\nBuffer glisson2D(); //not a thing yet\n\n\nParam amp(1.);\nParam ampRandom(0.);\n\nParam envMode(0); // 0 is standard envelope read, 1 is a lookup from a 2D wavetable\nParam windowOffsetMode(0); //0 is algorythmic linear offset, 1 is read from a buffer based on voice with a random offset in ms, 3 is read from a buffer by voice with random effecting the read position from that buffer\nParam rateMode(0); // 0 is algorythmic, 1 is lookup with random offset, 2 is lookup with randomized lookup position\nParam glissonMode(0);\nParam triggerMode(0);\n\nParam env2DOffset(0);\nParam env2DPosition(0);\nParam env2DRandom(0);\nParam env2DNumber(1);\n\nParam travGlobalOffset(-0.25); // Global Traversal offset in ms\nParam travRandom(0); // Traversal Random in ms\nParam travOffset(0); // Traversal offset in ms per voice\n\nParam windowOffset(0); // Grain offset on phasor per voice\nParam windowOffsetRandom(0); //Noise to the grain offset position\nParam windowReadBias(0);\nParam windowReadBiasRandom(0);\n\nParam space(0); //The amound of space for each cycle.  Set as a proportion.\nParam spaceRandom(0);\n\nParam rate(1); //playRate\nParam rateRandom(0);\nParam rateOffset(0);\nParam rateQuantizeSemi(0);\nParam direction(1);\n\nParam glisson(0);\nParam glissonRandom(0);\nParam glisson2DNumber(1);\n\n\nParam randomPole(1); // 0 is biPolar, -1 is neg, +1 is pos\nParam phasorRate(1);\nParam phasorRateRandom(0);\n\nParam forceGrainReset(0);\n\nHistory thisEnvMode(0);\nHistory startTime(0);\nHistory lastGrainProgress(0);\nHistory grainStage(0);\nHistory thisDuration(0);\nHistory sampleCounter(0);\nHistory thisSpace(0);\nHistory windowPortion(1);\nHistory playRate(0);\nHistory myOffset(0);\nHistory myGlisson(0);\nHistory myEnv2DOffset(0);\nHistory env2DLower(0);\nHistory env2DUpper(0);\nHistory env2DMix(0);\nHistory myReadBias(1);\nHistory myPhasorRate(1);\nHistory myDirection(1);\nHistory myAmp(1);"
 				}
 
 			}
@@ -674,6 +678,10 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 1037.0, 222.0, 35.0, 21.0 ],
+					"saved_object_attributes" : 					{
+						"attr_comment" : ""
+					}
+,
 					"text" : "out 1"
 				}
 
@@ -793,10 +801,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 617.0, 31.0, 27.0, 21.0 ],
-					"saved_object_attributes" : 					{
-						"attr_comment" : ""
-					}
-,
 					"text" : "in 1"
 				}
 
@@ -836,10 +840,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
 					"patching_rect" : [ 255.5, 112.0, 36.0, 21.0 ],
-					"saved_object_attributes" : 					{
-						"attr_comment" : ""
-					}
-,
 					"text" : "in~ 1"
 				}
 
@@ -852,10 +852,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
 					"patching_rect" : [ 89.0, 130.0, 36.0, 21.0 ],
-					"saved_object_attributes" : 					{
-						"attr_comment" : ""
-					}
-,
 					"text" : "in~ 2"
 				}
 
@@ -1384,9 +1380,13 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
+					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
+					"fontsize" : [ 10.0 ],
+					"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
 					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontsize" : [ 10.0 ],
+					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
+					"fontname" : [ "Futura Medium" ],
 					"bgfillcolor" : 					{
 						"type" : "color",
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -1397,14 +1397,10 @@
 						"autogradient" : 0.0
 					}
 ,
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
-					"fontname" : [ "Futura Medium" ],
-					"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontface" : [ 0 ],
 					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ]
+					"fontface" : [ 0 ],
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
