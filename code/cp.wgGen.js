@@ -282,12 +282,12 @@ function setDelayByJunction(){
 			var type = args[0+m*3]
 			var i = args[1+m*3];
 			var dt = args[2+m*3];
-
+			//post("mesh: "+ meshType+ " type: " + type +", i: " + i + ", dt: "+ dt +"\n"); 
 	if(meshType === "cartesian"){
 		
 
 			
-			//post("type: " + type +", i: " + i + ", dt: "+ dt +"\n"); 
+
 	
 		//post(cartMeshMode + "\n");
 		if(cartMeshMode == "old"){
@@ -394,8 +394,8 @@ function setDelayByJunction(){
 			}
 			}
 	else if (type == "wall"){
-		outlet(2, ["delayTimes", outDelays*2+aroundDelays*2+w, dt]);
-		dtByJunction("wall", i, wallDt);
+		outlet(2, ["delayTimes", outDelays*2+aroundDelays*2+i, dt]);
+		dtByJunction("wall", i, dt);
 			}
 		}
 		

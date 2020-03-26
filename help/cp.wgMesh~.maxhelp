@@ -76,7 +76,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 1472.0, 759.0, 1270.0, 480.0 ],
+						"rect" : [ 1019.0, 543.0, 1270.0, 480.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 10.0,
@@ -629,7 +629,7 @@
 									"outlettype" : [ "list", "float", "float", "float", "float", "list", "int" ],
 									"parameter_enable" : 0,
 									"patching_rect" : [ 50.0, 131.0, 256.0, 128.0 ],
-									"setfilter" : [ 2, 5, 1, 0, 0, 3449.9130859375, 0.92036360502243, 1.066058397293091, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1, 5, 1, 0, 0, 7876.53173828125, 1.0, 0.731381773948669, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0, 5, 1, 1, 0, 9240.94140625, 0.501668930053711, 0.415367364883423, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
+									"setfilter" : [ 2, 5, 1, 0, 0, 548.000732421875, 1.92134165763855, 0.480960428714752, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1, 5, 1, 0, 0, 7876.53173828125, 1.0, 0.731381773948669, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0, 5, 1, 1, 0, 660.65728759765625, 1.003647208213806, 0.415367364883423, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
 								}
 
 							}
@@ -927,7 +927,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 1616.0, 227.0, 62.0, 21.0 ],
+									"patching_rect" : [ 1520.5, 242.0, 62.0, 21.0 ],
 									"text" : "prepend set"
 								}
 
@@ -939,7 +939,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 1586.0, 198.0, 62.0, 21.0 ],
+									"patching_rect" : [ 1490.5, 213.0, 62.0, 21.0 ],
 									"text" : "prepend set"
 								}
 
@@ -951,7 +951,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "" ],
-									"patching_rect" : [ 1592.0, 166.0, 40.0, 21.0 ],
+									"patching_rect" : [ 1496.5, 181.0, 40.0, 21.0 ],
 									"text" : "unjoin"
 								}
 
@@ -963,7 +963,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 1394.75, 183.0, 36.0, 21.0 ],
+									"patching_rect" : [ 1381.0, 181.0, 36.0, 21.0 ],
 									"text" : "set $1"
 								}
 
@@ -1001,18 +1001,6 @@
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 1394.25, 94.5, 77.0, 21.0 ],
 									"text" : "r meshInfoHelp"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"id" : "obj-65",
-									"linecount" : 4,
-									"maxclass" : "comment",
-									"numinlets" : 1,
-									"numoutlets" : 0,
-									"patching_rect" : [ 1447.5, 563.0, 165.0, 58.0 ],
-									"text" : "Sometime when changing sizes you need to change it twice.  There is some ordering error in the mesh code."
 								}
 
 							}
@@ -1901,7 +1889,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 1483.5, 272.0, 52.0, 21.0 ]
+									"patching_rect" : [ 1490.5, 274.0, 52.0, 21.0 ]
 								}
 
 							}
@@ -1915,7 +1903,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 1447.5, 244.0, 50.0, 21.0 ]
+									"patching_rect" : [ 1456.0, 247.0, 50.0, 21.0 ]
 								}
 
 							}
@@ -2753,7 +2741,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 329.5, 543.0, 78.0, 21.0 ],
+					"patching_rect" : [ 319.5, 541.0, 78.0, 21.0 ],
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",
@@ -2912,7 +2900,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 329.5, 511.0, 58.0, 21.0 ],
+					"patching_rect" : [ 319.5, 509.0, 58.0, 21.0 ],
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",
