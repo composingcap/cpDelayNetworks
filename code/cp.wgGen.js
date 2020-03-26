@@ -272,11 +272,8 @@ function cartMeshDt(centerDelay, deviation, wallDelay, wallPosL, wallPosR, wallP
 function setDelayByJunction(){
 
 	var args = arrayfromargs(arguments);
-
-
-	if(meshType == "cartesian"){
-		
-		var jToSet = Math.floor(args.length/3);
+	
+	var jToSet = Math.floor(args.length/3);
 	//	post("number of junsctions to set... " + jToSet + "\n");
 		
 		for(m = 0; m < jToSet; m++){
@@ -285,6 +282,10 @@ function setDelayByJunction(){
 			var type = args[0+m*3]
 			var i = args[1+m*3];
 			var dt = args[2+m*3];
+
+	if(meshType === "cartesian"){
+		
+
 			
 			//post("type: " + type +", i: " + i + ", dt: "+ dt +"\n"); 
 	
@@ -378,7 +379,28 @@ function setDelayByJunction(){
 		}
 	}
 	}
-	}
+	else if (meshType === "polar"){
+		if (type == "junction"){	
+			//post(outDelays +"\n");
+	if (i < outDelays){
+			outlet(2, ["delayTimes", i, dt]);
+			outlet(2, ["delayTimes", i+outDelays, dt]);
+			dtByJunction("junction", i, dt);
+			}
+	else{		
+			outlet(2, ["delayTimes", i, dt]);
+			outlet(2, ["delayTimes", i+aroundDelays, dt]);
+			dtByJunction("junction", i, dt);	
+			}
+			}
+	else if (type == "wall"){
+		outlet(2, ["delayTimes", outDelays*2+aroundDelays*2+w, dt]);
+		dtByJunction("wall", i, wallDt);
+			}
+		}
+		
+
+		}
 	outlet(2, ["delayTimes", "sort", -1, -1]);
 	outlet(2, ["delayTimes", "dump"]);
 	outlet(2,"getInfo");
@@ -386,6 +408,7 @@ function setDelayByJunction(){
 	}
 	
 function makePolarMesh(o, a){
+	outlet(2,"clearInfo");
 	meshType= "polar";
 	out = o;
 	around = a;
@@ -395,6 +418,9 @@ function makePolarMesh(o, a){
 	var nWalls = around;
 	outDelays = around*out;
 	aroundDelays = around*out;
+	
+	outlet(1, ["junctionDelays", around*out*2]);
+	
 	outlet(1, ["meshMode", meshType]);
 	outlet(1, ["nDelays", nWalls + outDelays*2+aroundDelays*2]);
 	outlet(1, ["nJunctions", 1+ out*around]); 
@@ -466,9 +492,11 @@ function makePolarMesh(o, a){
 	polarMeshDt(50, 50, 25, 60, 70);
 	sendCoefs();
 	outlet(3, "bang");
+	outlet(2,"getInfo");
 }
 
 function polarMeshDt(outDt, outDev, aroundDt, aroundDev, wallDt){
+	outlet(2, ["dyByJunction", "clear"])
 	outlet(2, ["delayTimes", "clear"]);
 	var nWalls = around;
 	var outDelays = around*out;
@@ -478,13 +506,15 @@ function polarMeshDt(outDt, outDev, aroundDt, aroundDev, wallDt){
 	for (var o = 0; o<out; o++){
 		for (var a = 0; a < around; a++){
 			i = a+o*around;		
-		
-			outlet(2, ["delayTimes", i, outDt + o*outDev]);
-			outlet(2, ["delayTimes", i+outDelays, outDt + o*outDev]);
+			var dt =outDt + o*outDev;
+			outlet(2, ["delayTimes", i, dt]);
+			outlet(2, ["delayTimes", i+outDelays, dt]);
+			dtByJunction("junction", i, dt);
 			
-			outlet(2, ["delayTimes", i+outDelays*2, aroundDt + o * aroundDev]);
-			outlet(2, ["delayTimes", i+outDelays*2+aroundDelays, aroundDt + o * aroundDev]);	
-					
+			dt = aroundDt + o * aroundDev
+			outlet(2, ["delayTimes", i+outDelays*2, dt]);
+			outlet(2, ["delayTimes", i+outDelays*2+aroundDelays, dt]);
+			dtByJunction("junction", i+outDelays, dt);						
 			
 			}
 		
@@ -492,6 +522,7 @@ function polarMeshDt(outDt, outDev, aroundDt, aroundDev, wallDt){
 	for (var w =0; w < nWalls; w++){
 		
 		outlet(2, ["delayTimes", outDelays*2+aroundDelays*2+w, wallDt]);
+		dtByJunction("wall", w, wallDt);
 		}
 	outlet(2, ["delayTimes", "sort", -1, -1]);	
 	outlet(2, ["delayTimes", "dump"]);
