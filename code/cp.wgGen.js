@@ -17,7 +17,6 @@ var jDelayOffset;
 var cartMeshMode = "new";
 var xDelayLines;
 var yDelayLines;
-
  
 function makeCartMesh(l, w){
 	outlet(2,"clearInfo");
