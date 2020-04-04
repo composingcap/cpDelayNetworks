@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 100.0, 85.0, 905.0, 703.0 ],
+		"rect" : [ 34.0, 100.0, 905.0, 703.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 10.0,
@@ -56,7 +56,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 100.0, 111.0, 905.0, 677.0 ],
+						"rect" : [ 0.0, 26.0, 905.0, 677.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 10.0,
@@ -93,7 +93,6 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 783.0, 303.0, 81.0, 45.0 ],
-									"presentation_linecount" : 2,
 									"text" : "Frequency of that lowpass filter"
 								}
 
@@ -306,7 +305,7 @@
 									"maxclass" : "mc.ezdac~",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 10.0, 512.5, 45.0, 45.0 ]
+									"patching_rect" : [ 10.0, 529.5, 45.0, 45.0 ]
 								}
 
 							}
@@ -674,7 +673,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "multichannelsignal" ],
-									"patching_rect" : [ 10.0, 475.5, 119.0, 21.0 ],
+									"patching_rect" : [ 10.0, 493.0, 119.0, 21.0 ],
 									"text" : "mcs.limi~ @dcblock 1"
 								}
 
@@ -1065,7 +1064,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 905.0, 677.0 ],
+						"rect" : [ 34.0, 126.0, 905.0, 677.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 10.0,
@@ -1095,42 +1094,6 @@
 						"showontab" : 1,
 						"title" : "Presets and Info",
 						"boxes" : [ 							{
-								"box" : 								{
-									"id" : "obj-22",
-									"maxclass" : "message",
-									"numinlets" : 2,
-									"numoutlets" : 1,
-									"outlettype" : [ "" ],
-									"patching_rect" : [ 179.0, 485.0, 31.0, 21.0 ],
-									"text" : "clear"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"id" : "obj-14",
-									"maxclass" : "message",
-									"numinlets" : 2,
-									"numoutlets" : 1,
-									"outlettype" : [ "" ],
-									"patching_rect" : [ 111.0, 363.0, 78.0, 21.0 ],
-									"text" : "storagewindow"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"id" : "obj-8",
-									"maxclass" : "newobj",
-									"numinlets" : 1,
-									"numoutlets" : 1,
-									"outlettype" : [ "bang" ],
-									"patching_rect" : [ 45.0, 288.0, 52.0, 21.0 ],
-									"text" : "loadbang"
-								}
-
-							}
-, 							{
 								"box" : 								{
 									"id" : "obj-6",
 									"linecount" : 2,
@@ -1196,30 +1159,6 @@
 							}
 , 							{
 								"box" : 								{
-									"id" : "obj-7",
-									"maxclass" : "message",
-									"numinlets" : 2,
-									"numoutlets" : 1,
-									"outlettype" : [ "" ],
-									"patching_rect" : [ 45.0, 318.0, 147.0, 21.0 ],
-									"text" : "read _meshPresetsHelp.json, 1"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"id" : "obj-5",
-									"maxclass" : "message",
-									"numinlets" : 2,
-									"numoutlets" : 1,
-									"outlettype" : [ "" ],
-									"patching_rect" : [ 45.0, 360.0, 31.0, 21.0 ],
-									"text" : "write"
-								}
-
-							}
-, 							{
-								"box" : 								{
 									"id" : "obj-2",
 									"linecount" : 2,
 									"maxclass" : "comment",
@@ -1249,7 +1188,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 41.0, 439.0, 142.0, 21.0 ],
+									"patching_rect" : [ 49.0, 306.0, 142.0, 21.0 ],
 									"saved_object_attributes" : 									{
 										"client_rect" : [ 100, 100, 500, 600 ],
 										"parameter_enable" : 0,
@@ -1404,19 +1343,10 @@
 											}
 ,
 											"params" : 											{
-												"wallRc" : 0.825585530344683,
-												"scatterRc" : 0.870722535592319,
-												"randomDelayDepth" : 0.090409361921087,
-												"randomDelaySpeed" : [ 0.0, 2.297297297297297 ],
-												"wallFilterEnabled" : 0,
-												"scatterFilterEnabled" : 0,
-												"scatterFilter" : "null",
-												"scatterFilterGraph" : [ 0.994714818690071, -1.911464473202396, 0.917545755463495, -1.911645723776161, 0.91244182472733, 1.074655342681371, -0.980955104160602, 0.319065109216133, -0.980955104160602, 0.393720451897503, 1.034102094917708, -1.884404708367184, 0.855161265230801, -1.884404708367184, 0.889263360148509 ],
-												"wallFilterGraph" : [ 0.994714818690071, -1.911464473202396, 0.917545755463495, -1.911645723776161, 0.91244182472733, 1.074655342681371, -0.980955104160602, 0.319065109216133, -0.980955104160602, 0.393720451897503, 1.034102094917708, -1.884404708367184, 0.855161265230801, -1.884404708367184, 0.889263360148509 ],
-												"lowPassMix" : 0.0,
-												"lowPassFreq" : 10000,
-												"scatterFilterMix" : 0.0,
-												"wallFilterMix" : 0.0
+												"wallRc" : 0.5,
+												"scatterRc" : 0.8,
+												"randomDelayDepth" : 0.01,
+												"randomDelaySpeed" : [ 0.001, 0.01 ]
 											}
 
 										}
@@ -1467,20 +1397,6 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-18", 0 ],
-									"source" : [ "obj-14", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"destination" : [ "obj-18", 0 ],
-									"source" : [ "obj-22", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
 									"destination" : [ "obj-9", 1 ],
 									"source" : [ "obj-26", 0 ]
 								}
@@ -1488,29 +1404,8 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-18", 0 ],
-									"source" : [ "obj-5", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"destination" : [ "obj-18", 0 ],
-									"source" : [ "obj-7", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
 									"destination" : [ "obj-1", 0 ],
 									"source" : [ "obj-71", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"destination" : [ "obj-7", 0 ],
-									"source" : [ "obj-8", 0 ]
 								}
 
 							}
