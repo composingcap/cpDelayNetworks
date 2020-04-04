@@ -91,7 +91,7 @@
 					"numinlets" : 0,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 827.0, 329.0, 59.0, 21.0 ],
+					"patching_rect" : [ 827.0, 329.0, 61.0, 21.0 ],
 					"text" : "r #0_env"
 				}
 
@@ -102,7 +102,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 391.571428571428555, 200.0, 60.0, 21.0 ],
+					"patching_rect" : [ 391.571428571428555, 200.0, 61.0, 21.0 ],
 					"text" : "s #0_env"
 				}
 
@@ -214,6 +214,7 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-36",
+									"linecount" : 2,
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 1,
@@ -426,7 +427,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 405.0, 263.0, 78.0, 21.0 ],
+					"patching_rect" : [ 405.0, 263.0, 79.0, 21.0 ],
 					"text" : "v #0_ngrains "
 				}
 
@@ -1694,8 +1695,8 @@
 					"numinlets" : 4,
 					"numoutlets" : 6,
 					"outlettype" : [ "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "", "" ],
-					"patching_rect" : [ 45.0, 382.0, 310.0, 21.0 ],
-					"text" : "mc.poly~ cp.grainFlow.poly 1 @target 0 @parallel 1 @replicate 1"
+					"patching_rect" : [ 45.0, 382.0, 316.0, 21.0 ],
+					"text" : "mc.poly~ cp.grainFlow.poly #2 @target 0 @parallel 1 @replicate 1"
 				}
 
 			}
@@ -1707,7 +1708,7 @@
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
-					"outlettype" : [ "signal" ],
+					"outlettype" : [ "" ],
 					"patching_rect" : [ 45.0, 13.0, 30.0, 30.0 ]
 				}
 
