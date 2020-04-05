@@ -583,8 +583,8 @@
 									"numinlets" : 2,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 158.0, 358.0, 33.0, 21.0 ],
-									"text" : "zl.len"
+									"patching_rect" : [ 158.0, 358.0, 122.0, 21.0 ],
+									"text" : "zl.len @zlmaxsize 32767"
 								}
 
 							}
