@@ -634,7 +634,7 @@
 									"parameter_enable" : 0,
 									"patching_rect" : [ 48.0, 101.0, 188.0, 93.0 ],
 									"setminmax" : [ 50.0, 500.0 ],
-									"size" : 4
+									"size" : 3
 								}
 
 							}
@@ -905,6 +905,30 @@
 						"showontab" : 1,
 						"boxes" : [ 							{
 								"box" : 								{
+									"id" : "obj-9",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 408.0, 535.0, 150.0, 19.0 ],
+									"text" : "Press ctrl to delete one"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-6",
+									"linecount" : 2,
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 408.0, 495.0, 150.0, 32.0 ],
+									"presentation_linecount" : 2,
+									"text" : "Press shift to make a new tap out point"
+								}
+
+							}
+, 							{
+								"box" : 								{
 									"id" : "obj-8",
 									"maxclass" : "newobj",
 									"numinlets" : 1,
@@ -945,7 +969,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 411.0, 509.0, 150.0, 19.0 ],
+									"patching_rect" : [ 408.0, 467.0, 150.0, 19.0 ],
 									"text" : "JSUI gui for early reflections"
 								}
 
@@ -967,7 +991,7 @@
 , 							{
 								"box" : 								{
 									"border" : 0,
-									"embedstate" : [ [ "taps", 1000, 1888.888916015625, 2666.666748046875, 3333.333251953125, 3888.888916015625, 4333.33349609375, 4666.66650390625, 4888.888671875, 5000, 5000 ], [ "delayAmps", 1, 0.75, 0.7, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 ], [ "domain", 8000 ] ],
+									"embedstate" : [ [ "taps", 2797.02978515625, 596.401028277634964, 2666.666748046875, 3333.333251953125, 3888.888916015625, 4333.33349609375, 4666.66650390625, 5244.215938303342227, 5614.395886889460598, 1706.940874035989737, 6457.583547557840575 ], [ "delayAmps", 0.998198211193085, 0.346534653465347, 0.248648643493652, 0.526126146316528, 0.711711704730988, 0.989189207553864, 0.273873865604401, 0.881188118811881, 0.663366336633663, 0.524752475247525, 0.554455445544555 ], [ "domain", 8000 ] ],
 									"filename" : "cp.multitap.Gui",
 									"id" : "obj-5",
 									"maxclass" : "jsui",
