@@ -50,6 +50,8 @@ function draw(){
 	newAmps.push(thisAmp);
 	if (hoverIndex == i){
 		glcolor(1,0,0,1);
+		moveto(clamp((taps[i]/domain*2-1)*aspectx+0.1,-aspectx,0.82*aspectx), clamp(amps[i]*2-1,-1,0.8));
+		text(Math.round(taps[i],2) + " ms");
 		}
 	else{
 		glcolor(0,0,0,1);
@@ -65,6 +67,8 @@ function draw(){
 		glcolor(0,0,0,0.5);
 		moveto(newTapPos[0], -1);
 		plane(planeWidth,newTapPos[1]);
+		moveto(clamp(newTapPos[0]+0.1,-aspectx,aspectx*0.82), clamp(newTapPos[1]-1,-1,0.8));
+		text(Math.round((newTapPos[0]/aspectx+1)/2*domain,2) + " ms");
 		}
 	
 	}
@@ -88,6 +92,7 @@ function onidle(x,y,but,cmd,shift,capslock,option,ctrl){
 		if (mouseDistance < 0.025 && mouseDistance < hoverScore){
 			hoverScore = mouseDistance;
 			hoverIndex = i;		
+			
 		}		
 	}
 	
@@ -96,6 +101,7 @@ function onidle(x,y,but,cmd,shift,capslock,option,ctrl){
 
 	}
 	else{
+		
 		newTap = 1; 
 		newTapPos = [(x/width*2-1)*aspectx, 2-y/height*2];			
 			}
