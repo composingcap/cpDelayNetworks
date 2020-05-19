@@ -95,12 +95,11 @@ function onidle(x,y,but,cmd,shift,capslock,option,ctrl){
 			
 		}		
 	}
-	
-	
+
 
 
 	}
-	else{
+	else if (hoverIndex == -1){
 		
 		newTap = 1; 
 		newTapPos = [(x/width*2-1)*aspectx, 2-y/height*2];			
@@ -112,6 +111,14 @@ function onidle(x,y,but,cmd,shift,capslock,option,ctrl){
 	refresh();
 
 	}
+	
+function onidleout(){
+	newTap = 0;
+	hoverIndex = -1;
+	draw();
+	refresh();	
+	}
+	
 function onclick(x, y, button, modifier1, shift, capslock, option, modifier2){	
 	if (hoverIndex >= 0){
 		if (!modifier2){
