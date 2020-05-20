@@ -13,8 +13,9 @@ var taps = [100, 125, 500, 511];
 var domain = 1000;
 var erLength = 500;
 var predelay = 50;
-var amps = [1, 0.75, 0.7, 0.5, 0.25, 0.1];
-var planeWidth = 0.015;
+var amps = [1, 0.75, 0.7, 0.5];
+var feedbacks = [0, 1, 0, 0.25]
+var planeWidth = 0.02;
 var hoverIndex = -1;
 var width;
 var height;
@@ -31,10 +32,13 @@ var newLineColor = [0,0,0,0.5];
 var backgroundColor = [1,1,1,1];
 var selectionColor = [1,0,0,1];
 var continuousOutput = 1;
-
+var feedbackColor = [0,0,0,0.25];
+var feedbackWidth= 0.25;
 
 declareattribute("domain","getattr_domain", "setattr_domain", 1);
 declareattribute("taps","getattr_taps", "setattr_taps", 1);
+declareattribute("feedbacks","getattr_feedbacks", "setattr_feedbacks", 1);
+
 declareattribute("delayAmps","getattr_amps", "setattr_amps", 1);
 declareattribute("autoScale","getattr_autoScale", "setattr_autoScale", 1);
 
@@ -75,10 +79,24 @@ function draw(){
 	tapPositions = [];
 	var newAmps = [];
 	for(var i = 0; i < taps.length; i++){
-		
+	var tapX = aspectx*(-1 + ((taps[i]))/domain*2+planeWidth*0.5)
 	var ampIndex = clamp(i, 0, amps.length-1);
-	var thisAmp = amps[ampIndex];
+	var thisAmp = clamp(amps[ampIndex],0,1);	
 	newAmps.push(thisAmp);
+	if (i < feedbacks.length){
+
+		var fb = feedbacks[i];
+		}
+	else{
+		var fb = 0;
+		feedbacks.push(fb);
+		}
+	if (fb != 0){
+	moveto(tapX, -1);
+	glcolor(feedbackColor);
+	plane(feedbackWidth*Math.abs(fb)*thisAmp,2);
+	}			
+
 	if (hoverIndex == i){
 		glcolor(selectionColor);
 		moveto(clamp((taps[i]/domain*2-1)*aspectx+0.1,-aspectx,0.82*aspectx), clamp(amps[i]*2-1,-1,0.8));
@@ -87,11 +105,11 @@ function draw(){
 	else{
 		glcolor(lineColor);
 		}
-	var tapX = aspectx*(-1 + ((taps[i]))/domain*2+planeWidth*0.5)
 	tapPositions.push(tapX);
 	moveto(tapX, -1);
 	
 	plane(planeWidth,1*thisAmp*2);
+
 	
 	}
 		if (newTap){
@@ -175,10 +193,17 @@ function onclick(x, y, button, modifier1, shift, capslock, option, modifier2){
 	}
 function ondrag(x,y,but,cmd,shift,capslock,option,ctrl){
 	if (hoverIndex >= 0){
-	
+		if (option){
+			changeFeedback(x,y);			
+			}
+		else{
 			moveTap(x,y);
+			}
+			
+			
 						
 			}
+		
 		
 	}
 
@@ -196,12 +221,23 @@ function removeTap(){
 	
 function moveTap(x,y){
 			if (hoverIndex >= 0){
-			taps[hoverIndex] = (x/width)*domain;			
+			taps[hoverIndex] = (x/width)*domain+planeWidth/2;			
 			amps[hoverIndex] = 1-(y/height);
 			
 			draw();
 			refresh();
 			rescaleTaps();
+			}
+	}
+	
+function changeFeedback(x,y){
+		if (hoverIndex >= 0){
+			var tapPos = taps[hoverIndex]/domain;
+			mousePos= 1-((y/height+1)*0.5);
+			
+			feedbacks[hoverIndex] = Math.pow(clamp(mousePos,0,1),2);
+			draw();
+			refresh();
 			}
 	}
 function setPredelay(ms){
@@ -250,19 +286,22 @@ function addTap(x,y){
 function output(){
 	var ampArray = ["delayAmps"];
 	var tapArray = ["taps"];
+	var fbArray = ["binFb"];
 	for(var i = 0; i < taps.length; i++){
 	var ampIndex = clamp(i, 0, amps.length-1);
 	var thisAmp = amps[ampIndex];
 	ampArray.push(thisAmp);
 	var thisTap = taps[i];
 	tapArray.push(thisTap);
-	notifyclients();
+	var thisFb = feedbacks[i];
+	fbArray.push(thisFb);
 	
 		}
-		
+		outlet(0, fbArray);
 		outlet(0, ampArray);
 		outlet(0, tapArray);
 		
+		notifyclients();		
 		getattr_taps();
 		getattr_amps();
 	
@@ -307,6 +346,20 @@ function getattr_taps(){
 
 function setattr_amps(){
      amps = arrayfromargs(arguments);
+     draw();
+	refresh();
+		if (!continuousOutput){
+		output();
+		}
+}
+
+
+function getattr_feedbacks(){
+     return feedbacks;
+}
+
+function setattr_feedbacks(){
+     feedbacks = arrayfromargs(arguments);
      draw();
 	refresh();
 		if (!continuousOutput){
@@ -381,6 +434,7 @@ function setattr_continuousOutput(n){
 	//post(continuousOutput);
 
 }
+
 
 function getattr_continuousOutput(){
     return continuousOutput;
