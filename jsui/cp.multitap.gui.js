@@ -4,7 +4,12 @@ Early reflections gui
 
 */
 
-var taps = [100, 125, 2437, 2345];
+this.inlets = 1;
+this.outlets = 1;
+this.inspector=1;
+
+
+var taps = [100, 125, 500, 511];
 var domain = 1000;
 var erLength = 500;
 var predelay = 50;
@@ -18,28 +23,54 @@ var tapPositions = [];
 var clickY = 0;
 var newTap = 0;
 var newTapPos = [];
+var autoScale = 0;
+var clicked = 0;
+
+var lineColor = [0,0,0,1];
+var newLineColor = [0,0,0,0.5];
+var backgroundColor = [1,1,1,1];
+var selectionColor = [1,0,0,1];
+var continuousOutput = 1;
 
 
 declareattribute("domain","getattr_domain", "setattr_domain", 1);
 declareattribute("taps","getattr_taps", "setattr_taps", 1);
 declareattribute("delayAmps","getattr_amps", "setattr_amps", 1);
+declareattribute("autoScale","getattr_autoScale", "setattr_autoScale", 1);
+
+declareattribute("lineColor","getattr_lineColor", "setattr_lineColor", 1);
+declareattribute("newLineColor","getattr_newLineColor", "setattr_newLineColor", 1);
+declareattribute("backgroundColor","getattr_backgroundColor", "setattr_backgroundColor", 1);
+declareattribute("selectionColor","getattr_selectionColor", "setattr_selectionColor", 1);
+declareattribute("continuousOutput","getattr_continuousOutput", "setattr_continuousOutput", 1);
 
 function loadbang(){
 draw();
 output();
 }
 
+function _autoScale(){
+	var maxTap = taps.reduce(function(a, b) {
+    return Math.max(a, b)});
+	
+	domain = maxTap*1.05;
+	
+	}
 
 function draw(){
 	sketch.default2d();
 	width = this.box.rect[2] - this.box.rect[0];
 	height = this.box.rect[3] - this.box.rect[1];
 	aspectx = width/height;
-
+	
+	if (autoScale){
+		_autoScale();
+		
+		}
 
 	
 	with (sketch){
-	//glclearcolor(1, 1, 1, 1);
+	glclearcolor(backgroundColor);
 	glclear();	
 	tapPositions = [];
 	var newAmps = [];
@@ -49,10 +80,12 @@ function draw(){
 	var thisAmp = amps[ampIndex];
 	newAmps.push(thisAmp);
 	if (hoverIndex == i){
-		glcolor(1,0,0,1);
+		glcolor(selectionColor);
+		moveto(clamp((taps[i]/domain*2-1)*aspectx+0.1,-aspectx,0.82*aspectx), clamp(amps[i]*2-1,-1,0.8));
+		text(Math.round(taps[i],2) + " ms");
 		}
 	else{
-		glcolor(0,0,0,1);
+		glcolor(lineColor);
 		}
 	var tapX = aspectx*(-1 + ((taps[i]))/domain*2+planeWidth*0.5)
 	tapPositions.push(tapX);
@@ -62,20 +95,28 @@ function draw(){
 	
 	}
 		if (newTap){
-		glcolor(0,0,0,0.5);
+		glcolor(newLineColor);
 		moveto(newTapPos[0], -1);
 		plane(planeWidth,newTapPos[1]);
+		moveto(clamp(newTapPos[0]+0.1,-aspectx,aspectx*0.82), clamp(newTapPos[1]-1,-1,0.8));
+		text(Math.round((newTapPos[0]/aspectx+1)/2*domain,2) + " ms");
 		}
 	
 	}
 	amps = newAmps;
 	
-
+	if (continuousOutput){
 	output();
+	}
 	}
 
 function onidle(x,y,but,cmd,shift,capslock,option,ctrl){
-	
+	if (clicked){
+		clicked = 0;
+		if (!continuousOutput){
+			output();
+			}
+		}
 	if (!shift){
 		newTap = 0; 
 	var hoverScore = 1000;
@@ -88,14 +129,15 @@ function onidle(x,y,but,cmd,shift,capslock,option,ctrl){
 		if (mouseDistance < 0.025 && mouseDistance < hoverScore){
 			hoverScore = mouseDistance;
 			hoverIndex = i;		
+			
 		}		
 	}
-	
-	
+
 
 
 	}
-	else{
+	else if (hoverIndex == -1){
+		
 		newTap = 1; 
 		newTapPos = [(x/width*2-1)*aspectx, 2-y/height*2];			
 			}
@@ -106,7 +148,19 @@ function onidle(x,y,but,cmd,shift,capslock,option,ctrl){
 	refresh();
 
 	}
-function onclick(x, y, button, modifier1, shift, capslock, option, modifier2){	
+	
+function onidleout(){
+	newTap = 0;
+	hoverIndex = -1;
+	draw();
+	refresh();
+	if (!continuousOutput){
+		output();
+			}	
+	}
+	
+function onclick(x, y, button, modifier1, shift, capslock, option, modifier2){
+	clicked = 1;	
 	if (hoverIndex >= 0){
 		if (!modifier2){
 			moveTap(x,y);
@@ -202,6 +256,7 @@ function output(){
 	ampArray.push(thisAmp);
 	var thisTap = taps[i];
 	tapArray.push(thisTap);
+	notifyclients();
 	
 		}
 		
@@ -231,7 +286,6 @@ function setattr_domain(n){
      domain = n;
      draw();
 	refresh();
-	output();
 }
 
 function getattr_domain(){
@@ -242,7 +296,9 @@ function setattr_taps(){
      taps = arrayfromargs(arguments);
      draw();
 	refresh();
-	output();
+	if (!continuousOutput){
+		output();
+		}
 }
 
 function getattr_taps(){
@@ -253,12 +309,83 @@ function setattr_amps(){
      amps = arrayfromargs(arguments);
      draw();
 	refresh();
-	output();
+		if (!continuousOutput){
+		output();
+		}
 }
+
 
 function getattr_amps(){
      return amps;
 }
+
+function setattr_autoScale(){
+     autoScale = arrayfromargs(arguments);
+	draw();
+	refresh();
+
+}
+
+function getattr_autoScale(){
+    return autoScale;
+}
+
+function setattr_lineColor(){
+     lineColor = arrayfromargs(arguments);
+	draw();
+	refresh();
+
+}
+
+function getattr_lineColor(){
+    return lineColor;
+}
+
+function setattr_newLineColor(){
+     newLineColor = arrayfromargs(arguments);
+	draw();
+	refresh();
+
+}
+
+function getattr_newLineColor(){
+    return newLineColor;
+}
+
+function setattr_backgroundColor(){
+     backgroundColor = arrayfromargs(arguments);
+	draw();
+	refresh();
+
+}
+
+function getattr_backgroundColor(){
+    return backgroundColor;
+}
+
+function setattr_selectionColor(){
+     selectionColor = arrayfromargs(arguments);
+	draw();
+	refresh();
+
+}
+
+function getattr_selectionColor(){
+    return selectionColor;
+}
+
+function setattr_continuousOutput(n){
+     continuousOutput = n;
+	draw();
+	refresh();
+	//post(continuousOutput);
+
+}
+
+function getattr_continuousOutput(){
+    return continuousOutput;
+}
+
 
 function clamp(num, min, maximum) {
   return num <= min ? min : num >= maximum ? maximum : num;

@@ -1,0 +1,27 @@
+{
+	"boxes" : [ 		{
+			"box" : 			{
+				"maxclass" : "jsui",
+				"outlettype" : [ "" ],
+				"patching_rect" : [ 281.0, 167.0, 602.0, 142.0 ],
+				"filename" : "cp.multitap.gui",
+				"numinlets" : 1,
+				"id" : "obj-2",
+				"parameter_enable" : 0,
+				"numoutlets" : 1,
+				"embedstate" : [ [ "delayAmps", 1, 0.75, 0.7, 0.5 ], [ "domain", 1000 ], [ "autoScale", 0 ], [ "taps", 100, 125, 2437, 2345 ] ]
+			}
+
+		}
+ ],
+	"appversion" : 	{
+		"major" : 8,
+		"minor" : 1,
+		"revision" : 3,
+		"architecture" : "x64",
+		"modernui" : 1
+	}
+,
+	"classnamespace" : "box",
+	"preview_image" : [ 1028, "png", "IBkSG0fBZn....PCIgDQRA..AvA..D.GHX....PEzu.3....DLmPIQEBHf.B7g.YHB..CraRDEDU3wY6VGiBCCCEED7agu+GYkT6pzDVAIyzYPEOvvJcMy7Z.Hv8Lyr26SuCBrVqGe6+N0Ve9H.7cH3.jQvAHifCPFAGfLBN.YDb.xH3.jQvAHifCPFAGfLBN.YDb.xH3.jQvAHifCPFAGfLBN.YDb.xH3.jQvAHifCPFAGfLBN.YDb.xH3.jQvAHifCPFAGfLBN.YDb.xH3.jQvAHifCPFAGfLBN.YDb.xH3.jQvAHifCPFAGfLBN.YDb.xH3.jQvAHifCPFAGfLBN.YDb.xH3.jQvAHifCPFAGfLBN.YDb.xH3.jQvAHifCPFAGfLBN.YDb.xH3.jQvAHifCPFAGfLBN.YDb.xH3.jQvAHy8oG.+9Vqm2qs26CsDNMuvAHifCPFAGfLBN.YDb.xH3.jQvAHifCPFAGfLBN.YDb.xH3.jQvAHifCPFAGfLBN.YDb.xH3.jQvAHifCPFAGfLBN.YDb.xH3.jQvAHifCPFAGfLBN.YDb.xH3.jQvAHifCPFAGfLBN.YDb.xH3.jQvAHifCPFAGfLBN.YDb.xH3.jQvAHifCPFAGfLBN.YDb.xH3.jQvAHifCPFAGfLBN.YDb.xH3.jQvAHifCPFAGfLBN.YDb.xH3.jQvAHifCPFAGfLBN.YDb.xH3.jQvAHifCPFAGfLBN.YDb.xH3.jQvAHifCPFAGfLBN.YDb.xH3.jQvAHifCPFAGfLBN.YDb.xH3.jQvAHifCPFAGfLBN.YDb.xH3.jQvAHifCPFAGfLBN.YDb.xH3.jQvAHifCPFAGfLBN.YDb.xH3.jQvAHifCPFAGfLBN.YDb.xH3.jQvAHifCPFAGfLBN.YDb.xH3.jQvAHifCPFAGfLBN.YDb.xH3.jQvAHifCPFAGfLBN.YDb.xH3.jQvAHifCPFAGfLBN.YDb.xH3.jQvAHifCPFAGfLBN.YDb.xH3.jQvAHifCPFAGfLBN.YDb.xH3.jQvAHifCPFAGfLBN.YDb.xH3.jQvAHifCPFAGfLBN.YDb.xH3.jQvAHifCPFAGfLBN.YDb.xH3.jQvAHifCPFAGfLBN.YDb.xH3.jQvAHifCPFAGfLBN.YDb.xH3.jQvAHifCPFAGfLBN.YDb.xH3.jQvAHifCPFAGfLBN.YDb.xH3.jQvAHifCPFAGfLBN.YDb.xH3.jQvAHifCPFAGfLBN.YDb.xH3.jQvAHifCPFAGfLBN.YDb.xH3.jQvAHifCPFAGfLBN.YDb.xH3.jQvAHy0LyqSOBf+CuAsuVCy7XIhaA.....IUjSD4pPfIH" ]
+}

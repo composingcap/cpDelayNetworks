@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 100.0, 85.0, 1354.0, 953.0 ],
+		"rect" : [ 100.0, 85.0, 1354.0, 958.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 10.0,
@@ -56,7 +56,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 1354.0, 927.0 ],
+						"rect" : [ 0.0, 26.0, 1354.0, 932.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 10.0,
@@ -875,7 +875,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 100.0, 111.0, 1354.0, 927.0 ],
+						"rect" : [ 100.0, 111.0, 1354.0, 932.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 10.0,
@@ -922,7 +922,6 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 408.0, 495.0, 150.0, 32.0 ],
-									"presentation_linecount" : 2,
 									"text" : "Press shift to make a new tap out point"
 								}
 
@@ -991,15 +990,15 @@
 , 							{
 								"box" : 								{
 									"border" : 0,
-									"embedstate" : [ [ "taps", 1000, 1888.888916015625, 2666.666748046875, 3333.333251953125, 3888.888916015625, 4333.33349609375, 4666.66650390625, 4888.888671875, 5000, 5000 ], [ "delayAmps", 1, 0.75, 0.7, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 ], [ "domain", 8000 ] ],
-									"filename" : "cp.multitap.Gui.js",
+									"embedstate" : [ [ "autoScale", 0 ], [ "taps", 1000, 1888.888916015625, 2666.666748046875, 3333.333251953125, 3888.888916015625, 4333.33349609375, 4666.66650390625, 4888.888671875, 6212.987012987013259, 5000 ], [ "delayAmps", 1, 0.75, 0.7, 0.5, 0.5, 0.5, 0.5, 0.5, 0.455555555555556, 0.5 ], [ "domain", 8000 ] ],
+									"filename" : "cp.multitap.gui.js",
 									"id" : "obj-5",
 									"maxclass" : "jsui",
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 17.0, 432.0, 389.0, 101.0 ]
+									"patching_rect" : [ 17.0, 437.0, 385.0, 90.0 ]
 								}
 
 							}
@@ -1540,7 +1539,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 1354.0, 927.0 ],
+						"rect" : [ 0.0, 26.0, 1354.0, 932.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 10.0,
@@ -2101,8 +2100,8 @@
 			}
 , 			{
 				"name" : "_cp.multitap.gendsp",
-				"bootpath" : "~/Documents/Max 8/Packages/cpDelayNetworks/code",
-				"patcherrelativepath" : "../code",
+				"bootpath" : "~/Documents/Max 8/Packages/cpDelayNetworks/code/gen",
+				"patcherrelativepath" : "../code/gen",
 				"type" : "gDSP",
 				"implicit" : 1
 			}
@@ -2126,9 +2125,9 @@
 				"implicit" : 1
 			}
 , 			{
-				"name" : "cp.multitap.Gui.js",
-				"bootpath" : "~/Documents/Max 8/Packages/cpDelayNetworks/code",
-				"patcherrelativepath" : "../code",
+				"name" : "cp.multitap.gui.js",
+				"bootpath" : "~/Documents/Max 8/Packages/cpDelayNetworks/code/gui",
+				"patcherrelativepath" : "../code/gui",
 				"type" : "TEXT",
 				"implicit" : 1
 			}
