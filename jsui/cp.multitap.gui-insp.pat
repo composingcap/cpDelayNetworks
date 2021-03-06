@@ -1,1 +1,0 @@
-autoScale "Auto Scale" toggle;

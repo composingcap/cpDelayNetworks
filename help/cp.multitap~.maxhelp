@@ -4,13 +4,13 @@
 		"appversion" : 		{
 			"major" : 8,
 			"minor" : 1,
-			"revision" : 3,
+			"revision" : 10,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 100.0, 85.0, 1354.0, 958.0 ],
+		"rect" : [ 100.0, 85.0, 758.0, 958.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 10.0,
@@ -39,6 +39,7 @@
 		"subpatcher_template" : "minimal",
 		"showrootpatcherontab" : 0,
 		"showontab" : 0,
+		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
 					"id" : "obj-3",
@@ -50,13 +51,13 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 1,
-							"revision" : 3,
+							"revision" : 10,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 1354.0, 932.0 ],
+						"rect" : [ 0.0, 26.0, 758.0, 932.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 10.0,
@@ -84,6 +85,7 @@
 						"style" : "Minimal",
 						"subpatcher_template" : "minimal",
 						"showontab" : 1,
+						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
 								"box" : 								{
 									"id" : "obj-10",
@@ -91,7 +93,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 459.0, 453.0, 150.0, 71.0 ],
+									"patching_rect" : [ 459.0, 453.0, 150.0, 67.0 ],
 									"text" : "binFB will set a feedbakc coeficent to the output of a specific tapout.  All fedback delays are summed before writing into the buffer."
 								}
 
@@ -103,7 +105,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "bang" ],
-									"patching_rect" : [ 300.5, 64.0, 52.0, 21.0 ],
+									"patching_rect" : [ 300.5, 64.0, 54.0, 21.0 ],
 									"text" : "loadbang"
 								}
 
@@ -120,7 +122,7 @@
 										"appversion" : 										{
 											"major" : 8,
 											"minor" : 1,
-											"revision" : 3,
+											"revision" : 10,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -153,9 +155,11 @@
 										"tags" : "",
 										"style" : "Minimal",
 										"subpatcher_template" : "minimal",
+										"assistshowspatchername" : 0,
 										"boxes" : [ 											{
 												"box" : 												{
 													"id" : "obj-37",
+													"linecount" : 2,
 													"maxclass" : "newobj",
 													"numinlets" : 1,
 													"numoutlets" : 1,
@@ -168,6 +172,7 @@
 , 											{
 												"box" : 												{
 													"id" : "obj-35",
+													"linecount" : 2,
 													"maxclass" : "newobj",
 													"numinlets" : 1,
 													"numoutlets" : 2,
@@ -180,6 +185,7 @@
 , 											{
 												"box" : 												{
 													"id" : "obj-32",
+													"linecount" : 2,
 													"maxclass" : "newobj",
 													"numinlets" : 2,
 													"numoutlets" : 1,
@@ -192,6 +198,7 @@
 , 											{
 												"box" : 												{
 													"id" : "obj-28",
+													"linecount" : 2,
 													"maxclass" : "newobj",
 													"numinlets" : 1,
 													"numoutlets" : 1,
@@ -268,15 +275,17 @@
 										"styles" : [ 											{
 												"name" : "Minimal",
 												"default" : 												{
+													"fontname" : [ "Futura Medium" ],
+													"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
+													"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 													"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
-													"fontsize" : [ 10.0 ],
-													"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
+													"fontface" : [ 0 ],
 													"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 													"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
 													"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-													"fontname" : [ "Futura Medium" ],
+													"fontsize" : [ 10.0 ],
+													"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
 													"bgfillcolor" : 													{
 														"type" : "color",
 														"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -286,9 +295,7 @@
 														"proportion" : 0.39,
 														"autogradient" : 0.0
 													}
-,
-													"fontface" : [ 0 ],
-													"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+
 												}
 ,
 												"parentstyle" : "",
@@ -297,7 +304,7 @@
  ]
 									}
 ,
-									"patching_rect" : [ 134.5, 526.0, 97.0, 21.0 ],
+									"patching_rect" : [ 134.5, 526.0, 105.0, 21.0 ],
 									"saved_object_attributes" : 									{
 										"description" : "",
 										"digest" : "",
@@ -319,7 +326,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 379.0, 89.0, 31.0, 21.0 ],
+									"patching_rect" : [ 379.0, 89.0, 33.0, 21.0 ],
 									"text" : "clear"
 								}
 
@@ -356,7 +363,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 4,
 									"outlettype" : [ "", "", "", "" ],
-									"patching_rect" : [ 336.0, 152.0, 193.0, 21.0 ],
+									"patching_rect" : [ 336.0, 152.0, 210.0, 21.0 ],
 									"saved_object_attributes" : 									{
 										"embed" : 1,
 										"precision" : 6
@@ -385,7 +392,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 2,
 									"outlettype" : [ "int", "bang" ],
-									"patching_rect" : [ 336.0, 87.0, 33.0, 21.0 ],
+									"patching_rect" : [ 336.0, 87.0, 35.0, 21.0 ],
 									"text" : "urn 5"
 								}
 
@@ -397,7 +404,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 379.0, 468.5, 75.0, 21.0 ],
+									"patching_rect" : [ 379.0, 468.5, 80.0, 21.0 ],
 									"text" : "prepend binFb"
 								}
 
@@ -424,18 +431,21 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 50.0, 376.0, 69.0, 21.0 ],
+									"patching_rect" : [ 50.0, 376.0, 75.0, 21.0 ],
 									"text" : "prepend taps"
 								}
 
 							}
 , 							{
 								"box" : 								{
+									"basictuning" : 440,
 									"data" : 									{
 										"clips" : [ 											{
 												"absolutepath" : "brushes.aif",
 												"filename" : "brushes.aif",
 												"filekind" : "audiofile",
+												"id" : "u747000420",
+												"selection" : [ 0.0, 1.0 ],
 												"loop" : 1,
 												"content_state" : 												{
 													"timestretch" : [ 0 ],
@@ -458,12 +468,21 @@
  ]
 									}
 ,
+									"followglobaltempo" : 0,
+									"formantcorrection" : 0,
 									"id" : "obj-2",
 									"maxclass" : "playlist~",
+									"mode" : "basic",
 									"numinlets" : 1,
 									"numoutlets" : 5,
+									"originallength" : [ 0.0, "ticks" ],
+									"originaltempo" : 120.0,
 									"outlettype" : [ "signal", "signal", "signal", "", "dictionary" ],
-									"patching_rect" : [ 48.0, 486.0, 150.0, 30.0 ]
+									"parameter_enable" : 0,
+									"patching_rect" : [ 48.0, 486.0, 150.0, 30.0 ],
+									"pitchcorrection" : 0,
+									"quality" : "basic",
+									"timestretch" : [ 0 ]
 								}
 
 							}
@@ -490,9 +509,9 @@
 									"patching_rect" : [ 48.0, 593.0, 48.0, 136.0 ],
 									"saved_attribute_attributes" : 									{
 										"valueof" : 										{
-											"parameter_mmin" : -70.0,
 											"parameter_longname" : "mc.live.gain~[2]",
 											"parameter_mmax" : 6.0,
+											"parameter_mmin" : -70.0,
 											"parameter_shortname" : "mc.live.gain~",
 											"parameter_type" : 0,
 											"parameter_unitstyle" : 4
@@ -523,7 +542,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 12.0, 7.0, 488.0, 53.0 ],
+									"patching_rect" : [ 12.0, 7.0, 488.0, 50.0 ],
 									"text" : "cp.multitap- binFb"
 								}
 
@@ -535,7 +554,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 244.0, 271.5, 150.0, 32.0 ],
+									"patching_rect" : [ 244.0, 271.5, 150.0, 31.0 ],
 									"text" : "Harmonics added to each frequency"
 								}
 
@@ -547,7 +566,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 176.0, 222.0, 150.0, 32.0 ],
+									"patching_rect" : [ 176.0, 222.0, 150.0, 31.0 ],
 									"text" : "Taps incremeneted at each frequency"
 								}
 
@@ -559,7 +578,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 213.0, 385.5, 150.0, 32.0 ],
+									"patching_rect" : [ 213.0, 385.5, 150.0, 31.0 ],
 									"text" : "having a lot of taps will become expensive"
 								}
 
@@ -583,7 +602,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 158.0, 358.0, 122.0, 21.0 ],
+									"patching_rect" : [ 158.0, 358.0, 133.0, 21.0 ],
 									"text" : "zl.len @zlmaxsize 32767"
 								}
 
@@ -634,7 +653,7 @@
 									"parameter_enable" : 0,
 									"patching_rect" : [ 48.0, 101.0, 188.0, 93.0 ],
 									"setminmax" : [ 50.0, 500.0 ],
-									"size" : 3
+									"size" : 4
 								}
 
 							}
@@ -645,7 +664,7 @@
 									"numinlets" : 3,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 48.0, 309.0, 156.0, 21.0 ],
+									"patching_rect" : [ 48.0, 309.0, 173.0, 21.0 ],
 									"text" : "cp.multitap.genTaps.comby 10 1"
 								}
 
@@ -814,15 +833,17 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
+									"fontname" : [ "Futura Medium" ],
+									"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
-									"fontsize" : [ 10.0 ],
-									"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
+									"fontface" : [ 0 ],
 									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
 									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"fontname" : [ "Futura Medium" ],
+									"fontsize" : [ 10.0 ],
+									"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
 									"bgfillcolor" : 									{
 										"type" : "color",
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -832,9 +853,7 @@
 										"proportion" : 0.39,
 										"autogradient" : 0.0
 									}
-,
-									"fontface" : [ 0 ],
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+
 								}
 ,
 								"parentstyle" : "",
@@ -843,7 +862,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 216.0, 12.0, 87.0, 21.0 ],
+					"patching_rect" : [ 216.0, 12.0, 94.0, 21.0 ],
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",
@@ -869,13 +888,13 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 1,
-							"revision" : 3,
+							"revision" : 10,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 100.0, 111.0, 1354.0, 932.0 ],
+						"rect" : [ 100.0, 111.0, 758.0, 932.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 10.0,
@@ -903,6 +922,7 @@
 						"style" : "Minimal",
 						"subpatcher_template" : "minimal",
 						"showontab" : 1,
+						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
 								"box" : 								{
 									"id" : "obj-9",
@@ -921,7 +941,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 408.0, 495.0, 150.0, 32.0 ],
+									"patching_rect" : [ 408.0, 495.0, 150.0, 31.0 ],
 									"text" : "Press shift to make a new tap out point"
 								}
 
@@ -933,7 +953,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 135.0, 349.0, 78.0, 21.0 ],
+									"patching_rect" : [ 135.0, 349.0, 85.0, 21.0 ],
 									"text" : "loadmess 8000"
 								}
 
@@ -945,7 +965,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 135.0, 381.0, 58.0, 21.0 ],
+									"patching_rect" : [ 135.0, 381.0, 62.0, 21.0 ],
 									"text" : "domain $1"
 								}
 
@@ -957,7 +977,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 17.0, 349.0, 69.0, 21.0 ],
+									"patching_rect" : [ 17.0, 349.0, 75.0, 21.0 ],
 									"text" : "prepend taps"
 								}
 
@@ -968,29 +988,15 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 408.0, 467.0, 150.0, 19.0 ],
+									"patching_rect" : [ 408.0, 467.0, 151.0, 19.0 ],
 									"text" : "JSUI gui for early reflections"
 								}
 
 							}
 , 							{
 								"box" : 								{
-									"id" : "obj-12",
-									"maxclass" : "multislider",
-									"numinlets" : 1,
-									"numoutlets" : 2,
-									"outlettype" : [ "", "" ],
-									"parameter_enable" : 0,
-									"patching_rect" : [ 557.0, 293.0, 202.0, 51.0 ],
-									"setminmax" : [ 0.0, 1.0 ],
-									"size" : 10
-								}
-
-							}
-, 							{
-								"box" : 								{
 									"border" : 0,
-									"embedstate" : [ [ "autoScale", 0 ], [ "taps", 1000, 1888.888916015625, 2666.666748046875, 3333.333251953125, 3888.888916015625, 4333.33349609375, 4666.66650390625, 4888.888671875, 6212.987012987013259, 5000 ], [ "delayAmps", 1, 0.75, 0.7, 0.5, 0.5, 0.5, 0.5, 0.5, 0.455555555555556, 0.5 ], [ "domain", 8000 ] ],
+									"embedstate" : [ [ "backgroundColor", 1, 1, 1, 1 ], [ "selectionColor", 1, 0, 0, 1 ], [ "domain", 5250 ], [ "feedbacks", 0, 1, 0, 0.25, 0, 0, 0, 0, 0, 0 ], [ "delayAmps", 0.408108115196228, 0.143243238329887, 0.180180177092552, 0.614414393901825, 0.227027028799057, 0.42612612247467, 0.864864885807037, 0.348648637533188, 0.861261248588562, 0.44144144654274 ], [ "autoScale", 0 ], [ "continuousOutput", 1 ], [ "lineColor", 0, 0, 0, 1 ], [ "taps", 1000, 1888.888916015625, 2666.666748046875, 3333.333251953125, 3888.888916015625, 4333.33349609375, 4666.66650390625, 4888.888671875, 5000, 5000 ], [ "newLineColor", 0, 0, 0, 0.5 ] ],
 									"filename" : "cp.multitap.gui.js",
 									"id" : "obj-5",
 									"maxclass" : "jsui",
@@ -1009,7 +1015,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "bang" ],
-									"patching_rect" : [ 21.0, 120.0, 52.0, 21.0 ],
+									"patching_rect" : [ 21.0, 120.0, 54.0, 21.0 ],
 									"text" : "loadbang"
 								}
 
@@ -1044,7 +1050,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 442.0, 394.0, 242.0, 58.0 ],
+									"patching_rect" : [ 442.0, 394.0, 245.0, 55.0 ],
 									"text" : "A list following \"delayAmps\" will set amplitude values that will be applied to delay lookups.  If the numbers of amp and taps do not match they will floor to the nearest amp."
 								}
 
@@ -1056,7 +1062,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "bang" ],
-									"patching_rect" : [ 293.0, 194.0, 52.0, 21.0 ],
+									"patching_rect" : [ 293.0, 194.0, 54.0, 21.0 ],
 									"text" : "loadbang"
 								}
 
@@ -1068,7 +1074,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 293.0, 308.0, 47.0, 21.0 ],
+									"patching_rect" : [ 293.0, 308.0, 49.0, 21.0 ],
 									"text" : "zl.group"
 								}
 
@@ -1080,7 +1086,7 @@
 									"numinlets" : 6,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 293.0, 277.0, 98.0, 21.0 ],
+									"patching_rect" : [ 293.0, 277.0, 107.0, 21.0 ],
 									"text" : "scale 0. 999. 0.1 1."
 								}
 
@@ -1092,7 +1098,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "int" ],
-									"patching_rect" : [ 293.0, 254.0, 71.0, 21.0 ],
+									"patching_rect" : [ 293.0, 254.0, 76.0, 21.0 ],
 									"text" : "random 1000"
 								}
 
@@ -1116,7 +1122,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 293.0, 394.0, 101.0, 21.0 ],
+									"patching_rect" : [ 293.0, 394.0, 108.0, 21.0 ],
 									"text" : "prepend delayAmps"
 								}
 
@@ -1142,7 +1148,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 7.0, 15.0, 488.0, 53.0 ],
+									"patching_rect" : [ 7.0, 15.0, 488.0, 50.0 ],
 									"text" : "cp.multitap- delayAmps"
 								}
 
@@ -1159,9 +1165,9 @@
 									"patching_rect" : [ 17.0, 642.0, 48.0, 136.0 ],
 									"saved_attribute_attributes" : 									{
 										"valueof" : 										{
-											"parameter_mmin" : -70.0,
 											"parameter_longname" : "mc.live.gain~[1]",
 											"parameter_mmax" : 6.0,
+											"parameter_mmin" : -70.0,
 											"parameter_shortname" : "mc.live.gain~",
 											"parameter_type" : 0,
 											"parameter_unitstyle" : 4
@@ -1175,11 +1181,14 @@
 							}
 , 							{
 								"box" : 								{
+									"basictuning" : 440,
 									"data" : 									{
 										"clips" : [ 											{
 												"absolutepath" : "drumLoop.aif",
 												"filename" : "drumLoop.aif",
 												"filekind" : "audiofile",
+												"id" : "u419000524",
+												"selection" : [ 0.0, 1.0 ],
 												"loop" : 1,
 												"content_state" : 												{
 													"timestretch" : [ 0 ],
@@ -1202,12 +1211,21 @@
  ]
 									}
 ,
+									"followglobaltempo" : 0,
+									"formantcorrection" : 0,
 									"id" : "obj-3",
 									"maxclass" : "playlist~",
+									"mode" : "basic",
 									"numinlets" : 1,
 									"numoutlets" : 5,
+									"originallength" : [ 0.0, "ticks" ],
+									"originaltempo" : 120.0,
 									"outlettype" : [ "signal", "signal", "signal", "", "dictionary" ],
-									"patching_rect" : [ 17.0, 542.5, 150.0, 30.0 ]
+									"parameter_enable" : 0,
+									"patching_rect" : [ 17.0, 542.5, 150.0, 30.0 ],
+									"pitchcorrection" : 0,
+									"quality" : "basic",
+									"timestretch" : [ 0 ]
 								}
 
 							}
@@ -1305,7 +1323,7 @@
 									"numinlets" : 3,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 52.5, 199.0, 197.0, 21.0 ],
+									"patching_rect" : [ 52.5, 199.0, 215.0, 21.0 ],
 									"text" : "cp.multitap.genTaps.expDelay 0 10 5000"
 								}
 
@@ -1478,15 +1496,17 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
+									"fontname" : [ "Futura Medium" ],
+									"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
-									"fontsize" : [ 10.0 ],
-									"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
+									"fontface" : [ 0 ],
 									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
 									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"fontname" : [ "Futura Medium" ],
+									"fontsize" : [ 10.0 ],
+									"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
 									"bgfillcolor" : 									{
 										"type" : "color",
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -1496,9 +1516,7 @@
 										"proportion" : 0.39,
 										"autogradient" : 0.0
 									}
-,
-									"fontface" : [ 0 ],
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+
 								}
 ,
 								"parentstyle" : "",
@@ -1507,7 +1525,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 100.0, 12.0, 81.0, 21.0 ],
+					"patching_rect" : [ 100.0, 12.0, 87.0, 21.0 ],
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",
@@ -1533,13 +1551,13 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 1,
-							"revision" : 3,
+							"revision" : 10,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 1354.0, 932.0 ],
+						"rect" : [ 0.0, 26.0, 758.0, 932.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 10.0,
@@ -1567,6 +1585,7 @@
 						"style" : "Minimal",
 						"subpatcher_template" : "minimal",
 						"showontab" : 1,
+						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
 								"box" : 								{
 									"id" : "obj-17",
@@ -1579,7 +1598,7 @@
 										"appversion" : 										{
 											"major" : 8,
 											"minor" : 1,
-											"revision" : 3,
+											"revision" : 10,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -1612,9 +1631,11 @@
 										"tags" : "",
 										"style" : "Minimal",
 										"subpatcher_template" : "minimal",
+										"assistshowspatchername" : 0,
 										"boxes" : [ 											{
 												"box" : 												{
 													"id" : "obj-12",
+													"linecount" : 2,
 													"maxclass" : "newobj",
 													"numinlets" : 1,
 													"numoutlets" : 1,
@@ -1627,6 +1648,7 @@
 , 											{
 												"box" : 												{
 													"id" : "obj-10",
+													"linecount" : 2,
 													"maxclass" : "newobj",
 													"numinlets" : 2,
 													"numoutlets" : 2,
@@ -1639,6 +1661,7 @@
 , 											{
 												"box" : 												{
 													"id" : "obj-7",
+													"linecount" : 2,
 													"maxclass" : "newobj",
 													"numinlets" : 2,
 													"numoutlets" : 1,
@@ -1712,15 +1735,17 @@
 										"styles" : [ 											{
 												"name" : "Minimal",
 												"default" : 												{
+													"fontname" : [ "Futura Medium" ],
+													"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
+													"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 													"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
-													"fontsize" : [ 10.0 ],
-													"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
+													"fontface" : [ 0 ],
 													"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 													"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
 													"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-													"fontname" : [ "Futura Medium" ],
+													"fontsize" : [ 10.0 ],
+													"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
 													"bgfillcolor" : 													{
 														"type" : "color",
 														"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -1730,9 +1755,7 @@
 														"proportion" : 0.39,
 														"autogradient" : 0.0
 													}
-,
-													"fontface" : [ 0 ],
-													"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+
 												}
 ,
 												"parentstyle" : "",
@@ -1741,7 +1764,7 @@
  ]
 									}
 ,
-									"patching_rect" : [ 6.0, 115.0, 88.0, 21.0 ],
+									"patching_rect" : [ 6.0, 115.0, 98.0, 21.0 ],
 									"saved_object_attributes" : 									{
 										"description" : "",
 										"digest" : "",
@@ -1779,9 +1802,9 @@
 									"patching_rect" : [ 6.0, 585.0, 48.0, 136.0 ],
 									"saved_attribute_attributes" : 									{
 										"valueof" : 										{
-											"parameter_mmin" : -70.0,
 											"parameter_longname" : "mc.live.gain~",
 											"parameter_mmax" : 6.0,
+											"parameter_mmin" : -70.0,
 											"parameter_shortname" : "mc.live.gain~",
 											"parameter_type" : 0,
 											"parameter_unitstyle" : 4
@@ -1800,7 +1823,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 88.0, 316.0, 164.0, 45.0 ],
+									"patching_rect" : [ 88.0, 316.0, 184.0, 43.0 ],
 									"text" : "\"fb\" followed by a float will set the feedback coefiecnt from the output of the mutitap to the input."
 								}
 
@@ -1812,7 +1835,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 88.0, 260.0, 164.0, 45.0 ],
+									"patching_rect" : [ 88.0, 260.0, 164.0, 43.0 ],
 									"text" : "\"taps\" followed by a list of floats will set tapout points in ms for the multitap."
 								}
 
@@ -1842,9 +1865,9 @@
 									"patching_rect" : [ 38.0, 305.0, 41.0, 48.0 ],
 									"saved_attribute_attributes" : 									{
 										"valueof" : 										{
-											"parameter_mmin" : -1.0,
 											"parameter_longname" : "feedback",
 											"parameter_mmax" : 1.0,
+											"parameter_mmin" : -1.0,
 											"parameter_shortname" : "feedback",
 											"parameter_type" : 0,
 											"parameter_unitstyle" : 1
@@ -1875,7 +1898,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 6.0, 78.0, 268.0, 32.0 ],
+									"patching_rect" : [ 6.0, 78.0, 268.0, 31.0 ],
 									"text" : "Accepts a list of taps and delays a mc or signal input by those taps in ms"
 								}
 
@@ -1887,7 +1910,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 6.0, 12.0, 488.0, 53.0 ],
+									"patching_rect" : [ 6.0, 12.0, 488.0, 50.0 ],
 									"text" : "cp.multitap- Basic Usage"
 								}
 
@@ -1906,11 +1929,13 @@
 							}
 , 							{
 								"box" : 								{
+									"basictuning" : 440,
 									"data" : 									{
 										"clips" : [ 											{
 												"absolutepath" : "jongly.aif",
 												"filename" : "jongly.aif",
 												"filekind" : "audiofile",
+												"id" : "u605000579",
 												"selection" : [ 0.0, 1.0 ],
 												"loop" : 1,
 												"content_state" : 												{
@@ -1935,12 +1960,21 @@
  ]
 									}
 ,
+									"followglobaltempo" : 0,
+									"formantcorrection" : 0,
 									"id" : "obj-3",
 									"maxclass" : "playlist~",
+									"mode" : "basic",
 									"numinlets" : 1,
 									"numoutlets" : 5,
+									"originallength" : [ 0.0, "ticks" ],
+									"originaltempo" : 120.0,
 									"outlettype" : [ "signal", "signal", "signal", "", "dictionary" ],
-									"patching_rect" : [ 6.0, 439.0, 150.0, 30.0 ]
+									"parameter_enable" : 0,
+									"patching_rect" : [ 6.0, 439.0, 150.0, 30.0 ],
+									"pitchcorrection" : 0,
+									"quality" : "basic",
+									"timestretch" : [ 0 ]
 								}
 
 							}
@@ -2027,15 +2061,17 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
+									"fontname" : [ "Futura Medium" ],
+									"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
-									"fontsize" : [ 10.0 ],
-									"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
+									"fontface" : [ 0 ],
 									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
 									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"fontname" : [ "Futura Medium" ],
+									"fontsize" : [ 10.0 ],
+									"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
 									"bgfillcolor" : 									{
 										"type" : "color",
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -2045,9 +2081,7 @@
 										"proportion" : 0.39,
 										"autogradient" : 0.0
 									}
-,
-									"fontface" : [ 0 ],
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+
 								}
 ,
 								"parentstyle" : "",
@@ -2056,7 +2090,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 4.0, 12.0, 81.0, 21.0 ],
+					"patching_rect" : [ 4.0, 12.0, 88.0, 21.0 ],
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",
@@ -2081,27 +2115,28 @@
 			"parameterbanks" : 			{
 
 			}
-
+,
+			"inherited_shortname" : 1
 		}
 ,
 		"dependency_cache" : [ 			{
 				"name" : "cp.multitap~.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/cpDelayNetworks/patchers",
+				"bootpath" : "D:/Documents/Max 8/Packages/cpDelayNetworks/patchers",
 				"patcherrelativepath" : "../patchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "_cp.poly.multitap.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/cpDelayNetworks/patchers",
+				"bootpath" : "D:/Documents/Max 8/Packages/cpDelayNetworks/patchers",
 				"patcherrelativepath" : "../patchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "_cp.multitap.gendsp",
-				"bootpath" : "~/Documents/Max 8/Packages/cpDelayNetworks/code/gen",
-				"patcherrelativepath" : "../code/gen",
+				"bootpath" : "D:/Documents/Max 8/Packages/cpDelayNetworks/code",
+				"patcherrelativepath" : "../code",
 				"type" : "gDSP",
 				"implicit" : 1
 			}
@@ -2113,7 +2148,7 @@
 			}
 , 			{
 				"name" : "cp.multitap.genTaps.expDelay.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/cpDelayNetworks/patchers",
+				"bootpath" : "D:/Documents/Max 8/Packages/cpDelayNetworks/patchers",
 				"patcherrelativepath" : "../patchers",
 				"type" : "JSON",
 				"implicit" : 1
@@ -2126,14 +2161,14 @@
 			}
 , 			{
 				"name" : "cp.multitap.gui.js",
-				"bootpath" : "~/Documents/Max 8/Packages/cpDelayNetworks/code/gui",
-				"patcherrelativepath" : "../code/gui",
+				"bootpath" : "D:/Documents/Max 8/Packages/cpDelayNetworks/jsui",
+				"patcherrelativepath" : "../jsui",
 				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "cp.multitap.genTaps.comby.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/cpDelayNetworks/patchers",
+				"bootpath" : "D:/Documents/Max 8/Packages/cpDelayNetworks/patchers",
 				"patcherrelativepath" : "../patchers",
 				"type" : "JSON",
 				"implicit" : 1
@@ -2166,15 +2201,17 @@
 , 			{
 				"name" : "Minimal",
 				"default" : 				{
+					"fontname" : [ "Futura Medium" ],
+					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
-					"fontsize" : [ 10.0 ],
-					"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
+					"fontface" : [ 0 ],
 					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
 					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"fontname" : [ "Futura Medium" ],
+					"fontsize" : [ 10.0 ],
+					"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -2184,9 +2221,7 @@
 						"proportion" : 0.39,
 						"autogradient" : 0.0
 					}
-,
-					"fontface" : [ 0 ],
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+
 				}
 ,
 				"parentstyle" : "",
@@ -2195,10 +2230,10 @@
 , 			{
 				"name" : "Purple",
 				"default" : 				{
-					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
 					"color" : [ 0.701961, 0.415686, 0.886275, 1.0 ],
+					"accentcolor" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 					"bgcolor" : [ 0.239216, 0.254902, 0.278431, 1.0 ],
-					"accentcolor" : [ 0.65098, 0.666667, 0.662745, 1.0 ]
+					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
@@ -2207,14 +2242,15 @@
 , 			{
 				"name" : "Sky",
 				"default" : 				{
+					"patchlinecolor" : [ 0.0, 0.0, 0.0, 0.9 ],
+					"color" : [ 0.501961, 1.0, 0.0, 1.0 ],
+					"accentcolor" : [ 0.0, 0.0, 1.0, 1.0 ],
 					"elementcolor" : [ 0.0, 1.0, 0.0, 1.0 ],
-					"textcolor" : [ 0.0, 0.0, 1.0, 1.0 ],
-					"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
 					"selectioncolor" : [ 0.862745, 0.870588, 0.878431, 1.0 ],
 					"textcolor_inverse" : [ 1.0, 1.0, 1.0, 1.0 ],
-					"color" : [ 0.501961, 1.0, 0.0, 1.0 ],
 					"bgcolor" : [ 0.4, 0.4, 1.0, 1.0 ],
-					"patchlinecolor" : [ 0.0, 0.0, 0.0, 0.9 ],
+					"textcolor" : [ 0.0, 0.0, 1.0, 1.0 ],
+					"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
 					"bgfillcolor" : 					{
 						"type" : "gradient",
 						"color" : [ 0.341176, 0.027451, 0.023529, 1.0 ],
@@ -2224,8 +2260,7 @@
 						"proportion" : 0.39,
 						"autogradient" : 0
 					}
-,
-					"accentcolor" : [ 0.0, 0.0, 1.0, 1.0 ]
+
 				}
 ,
 				"parentstyle" : "",
