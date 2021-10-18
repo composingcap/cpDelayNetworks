@@ -284,8 +284,8 @@ function addTap(x,y){
 
 	}
 function output(){
-	var ampArray = ["delayAmps"];
-	var tapArray = ["taps"];
+	var ampArray = ["amps"];
+	var tapArray = ["delays"];
 	var fbArray = ["binFb"];
 	for(var i = 0; i < taps.length; i++){
 	var ampIndex = clamp(i, 0, amps.length-1);
