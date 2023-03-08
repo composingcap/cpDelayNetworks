@@ -274,8 +274,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "multichannelsignal", "multichannelsignal" ],
-					"patching_rect" : [ 142.0, 308.0, 121.0, 22.0 ],
-					"text" : "mc.poly~ cp.tinyMesh~"
+					"patching_rect" : [ 142.0, 308.0, 176.0, 22.0 ],
+					"text" : "mc.poly~ cp.tinyMesh~ @parallel 1"
 				}
 
 			}
@@ -402,7 +402,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-45", 1 ],
-					"order" : 1,
+					"order" : 0,
 					"source" : [ "obj-54", 1 ]
 				}
 
@@ -417,7 +417,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-59", 0 ],
-					"order" : 0,
+					"order" : 1,
 					"source" : [ "obj-54", 1 ]
 				}
 
