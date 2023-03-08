@@ -3,14 +3,14 @@
 		"fileversion" : 1,
 		"appversion" : 		{
 			"major" : 8,
-			"minor" : 2,
-			"revision" : 0,
+			"minor" : 5,
+			"revision" : 3,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "dsp.gen",
-		"rect" : [ 662.0, 324.0, 1176.0, 670.0 ],
+		"rect" : [ 470.0, 235.0, 1176.0, 670.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 11.0,
@@ -51,7 +51,7 @@
 			}
 , 			{
 				"box" : 				{
-					"code" : "rectScatter(i1, i2, i3, i4, dt, rc, cuttoff){\r\n\tDelay d1(samplerate*5);\r\n\tDelay d2(samplerate*5);\r\n\tDelay d3(samplerate*5);\r\n\tDelay d4(samplerate*5);\r\n\tdt = mstosamps(dt);\r\n\tz = (i1+i2+i3+i4)*0.5;\r\n\tif (cuttoff > 0){\r\n\t\tz = onepole(z, cuttoff);\r\n\t}\r\n\to1 = d1.read(dt);\r\n\to2 = d2.read(dt);\r\n\to3 = d3.read(dt);\r\n\to4 = d4.read(dt);\r\n\t\t\r\n\td1.write(i1-z);\r\n\td2.write(i2-z);\r\n\td3.write(i3-z);\r\n\td4.write(i4-z);\r\n\t\t\r\n\treturn o1*rc, o2*rc, o3*rc, o4*rc;\r\n\t}\r\n\t\r\nwallBounce(i, dt, rc, cut){\r\n\tDelay d(samplerate*5);\r\n\tdt = mstosamps(dt);\r\n\to = d.read(dt);\r\n\td.write(i);\r\n\tif (cut > 0){\r\n\t\to = onepole(o,cut);\r\n\t}\r\n\treturn o*(rc);\r\n\t}\r\n\t\r\nonepole(i, f){\r\n\r\n\tHistory h1(0);\r\n\ta = clip(sin(abs(f)*TWOPI/samplerate),0,1);\r\n\th1 = mix(h1,i,a);\r\n\t\r\n\treturn h1;\r\n\r\n\t}\r\nParam predelay(0);\r\nParam mix (0.5, min=0, max=1);\r\nParam scatterRc(0.5, min = -1, max = 1);\r\nParam wallRc(0.5, min = -1, max = 1);\r\nParam wallCuttoff (0);\r\nParam scatterCuttoff(0);\r\nParam dta(71), dtb(57), dtc(87), dtd(24);\r\nParam dttop(100), dtbottom(100), dtleft(100), dtright(100);\r\nParam scatterSlide(0.01), wallSlide(0.01);\r\nParam flange(0); \r\nParam flangeSpeed1(0.85), flangeSpeed2(1), flangeSpeed3(1.3), flangeSpeed4(0.78);\r\n\r\nHistory b1, c3, d3, d1, b3, a3, b2, d2, c4, d4, c1, a1;\r\n\r\nDelay dl(2*samplerate), dr(2*samplerate);\r\nf1, f2, f3, f4 = 0;\r\ndtaf, dtbf, dtcf, dtdf = 0;\r\n\r\nif (flange > 0){\r\n\tf1 = (fastcos(phasor(flangeSpeed1)*TWOPI)+1)*0.5;\r\n\tf2 = (fastcos(phasor(flangeSpeed2)*TWOPI)+1)*0.5;\r\n\tf3 = (fastcos(phasor(flangeSpeed3)*TWOPI)+1)*0.5;\r\n\tf4 = (fastcos(phasor(flangeSpeed4)*TWOPI)+1)*0.5;\r\n\t\r\n\tdtaf = (f1*0.5+f2*0.5)*flange;\r\n\tdtbf = (f2*0.5+f4*0.5)*flange;\r\n\tdtcf = (f1*0.5+f3*0.5)*flange;\r\n\tdtdf = (f3*0.5+f4*0.5)*flange;\r\n\t}\r\n\r\n\r\ndl.write(in1);\r\ndr.write(in2);\r\n\r\nl = dl.read(predelay);\r\nr = dr.read(predelay); \r\n//w1, w2, w3, w4, w5, w6, w7, w8 = 0;\r\n\r\ndtas = slide(dta+dtaf, scatterSlide*samplerate,scatterSlide*samplerate);\r\ndtbs = slide(dtb+dtbf, scatterSlide*samplerate,scatterSlide*samplerate);\r\ndtcs = slide(dtc+dtcf, scatterSlide*samplerate,scatterSlide*samplerate);\r\ndtds = slide(dtc+dtdf, scatterSlide*samplerate,scatterSlide*samplerate);\r\n\r\ndttops = slide(dttop, wallSlide*samplerate,wallSlide*samplerate);\r\ndtbottoms = slide(dtbottom, wallSlide*samplerate,wallSlide*samplerate);\r\ndtlefts = slide(dttop, wallSlide*samplerate,wallSlide*samplerate);\r\ndtrights = slide(dttop, wallSlide*samplerate,wallSlide*samplerate);\r\n\r\nw1 = wallBounce(a3, dttops, wallRc, wallCuttoff); \r\nw2 = wallBounce(b3, dttops, wallRc, wallCuttoff); \r\nw3 = wallBounce(b2, dtrights, wallRc, wallCuttoff); \r\nw4 = wallBounce(d2, dtrights, wallRc, wallCuttoff); \r\nw5 = wallBounce(d4, dtbottoms, wallRc, wallCuttoff); \r\nw6 = wallBounce(c4, dtbottoms, wallRc, wallCuttoff); \r\nw7 = wallBounce(c1, dtlefts, wallRc, wallCuttoff); \r\nw8 = wallBounce(a1, dtlefts, wallRc, wallCuttoff); \r\n\r\n\r\na1, a2, a3, a4 = rectScatter(l+w8, b1, w1, c3, dtas, scatterRc, scatterCuttoff);\r\nb1, b2, b3, b4 = rectScatter(a2, w3, w2, r+d3, dtbs, scatterRc, scatterCuttoff);\r\nc1, c2, c3, c4 = rectScatter(w7, d1, a4, w6, dtcs, scatterRc, scatterCuttoff);\r\nd1, d2, d3, d4 = rectScatter( c2, w4, b4, w5, dtds, scatterRc, scatterCuttoff);\r\n\r\nslideMix = slide(mix,500,500);\r\n\r\nout1 = c1*slideMix*2 + l*(1-slideMix);\r\nout2 = d4*slideMix*2 + r*(1-slideMix);\r\n",
+					"code" : "onepole(i, f){\r\n\r\n\tHistory ha(0);\r\n\ta = clip(sin(abs(f)*TWOPI/samplerate),0,1);\r\n\tha = ha*(1-a) + i*a;\r\n\t\r\n\treturn ha;\r\n\r\n\t}\r\n\r\nrectScatter(i1, i2, i3, i4, dt, rc, cuttoff){\r\n\tDelay d1(samplerate*5);\r\n\tDelay d2(samplerate*5);\r\n\tDelay d3(samplerate*5);\r\n\tDelay d4(samplerate*5);\r\n\tdt = mstosamps(dt);\r\n\tz = (i1+i2+i3+i4)*0.5;\r\n\t\r\n\tif (cuttoff > 0){\r\n\t\tz = onepole(z, cuttoff);\r\n\t}\r\n\to1 = d1.read(dt);\r\n\to2 = d2.read(dt);\r\n\to3 = d3.read(dt);\r\n\to4 = d4.read(dt);\r\n\t\t\r\n\td1.write(i1-z);\r\n\td2.write(i2-z);\r\n\td3.write(i3-z);\r\n\td4.write(i4-z);\r\n\t\t\r\n\treturn o1*rc, o2*rc, o3*rc, o4*rc;\r\n\t}\r\n\t\r\nwallBounce(i, dt, rc, cut){\r\n\tDelay d(samplerate*5);\r\n\t\r\n\tdt = mstosamps(dt);\r\n\t\r\n\to = d.read(dt);\r\n\td.write(i);\r\n\t\r\n\tif (cut > 0){\r\n\t\to = onepole(o,cut);\r\n\t}\r\n\t\r\n\treturn o*rc;\r\n\t}\r\n\t\r\n\r\nParam predelay(0, max = 1000);\r\nParam mix (1, min=0, max=1);\r\nParam scatterRc(0.5, min = -1, max = 1);\r\nParam wallRc(0.5, min = -1, max = 1);\r\nParam wallCuttoff (0, min=0, max=20000);\r\nParam scatterCuttoff(0, min=0, max=20000);\r\nParam dta(71, min=0, max=5000), dtb(57, max=5000), dtc(87, max=5000), dtd(24, max=5000);\r\nParam dttop(100, max=5000), dtbottom(100, max=5000), dtleft(100, max=5000), dtright(100, max=5000);\r\nParam scatterSlide(0.01, max = 1), wallSlide(0.01, max = 1);\r\nParam flange(0, max = 10); \r\nParam flangeSpeed1(0.85, max = 10), flangeSpeed2(1,  max = 10), flangeSpeed3(1.3,  max = 10), flangeSpeed4(0.78,  max = 10);\r\n\r\nHistory b1, c3, d3, d1, b3, a3, b2, d2, c4, d4, c1, a1;\r\n\r\nDelay dl(2*samplerate), dr(2*samplerate);\r\nf1, f2, f3, f4 = 0;\r\ndtaf, dtbf, dtcf, dtdf = 0;\r\n\r\nif (flange > 0){\r\n\tf1 = (fastcos(phasor(flangeSpeed1)*TWOPI)+1)*0.5;\r\n\tf2 = (fastcos(phasor(flangeSpeed2)*TWOPI)+1)*0.5;\r\n\tf3 = (fastcos(phasor(flangeSpeed3)*TWOPI)+1)*0.5;\r\n\tf4 = (fastcos(phasor(flangeSpeed4)*TWOPI)+1)*0.5;\r\n\t\r\n\tdtaf = (f1*0.5+f2*0.5)*flange;\r\n\tdtbf = (f2*0.5+f4*0.5)*flange;\r\n\tdtcf = (f1*0.5+f3*0.5)*flange;\r\n\tdtdf = (f3*0.5+f4*0.5)*flange;\r\n\t}\r\n\r\n\r\ndl.write(in1);\r\ndr.write(in2);\r\n\r\nl = dl.read(predelay);\r\nr = dr.read(predelay); \r\n//w1, w2, w3, w4, w5, w6, w7, w8 = 0;\r\n\r\ndtas = slide(dta+dtaf, scatterSlide*samplerate,scatterSlide*samplerate);\r\ndtbs = slide(dtb+dtbf, scatterSlide*samplerate,scatterSlide*samplerate);\r\ndtcs = slide(dtc+dtcf, scatterSlide*samplerate,scatterSlide*samplerate);\r\ndtds = slide(dtc+dtdf, scatterSlide*samplerate,scatterSlide*samplerate);\r\n\r\ndttops = slide(dttop, wallSlide*samplerate,wallSlide*samplerate);\r\ndtbottoms = slide(dtbottom, wallSlide*samplerate,wallSlide*samplerate);\r\ndtlefts = slide(dttop, wallSlide*samplerate,wallSlide*samplerate);\r\ndtrights = slide(dttop, wallSlide*samplerate,wallSlide*samplerate);\r\n\r\nw1 = wallBounce(a3, dttops, wallRc, wallCuttoff); \r\nw2 = wallBounce(b3, dttops, wallRc, wallCuttoff); \r\nw3 = wallBounce(b2, dtrights, wallRc, wallCuttoff); \r\nw4 = wallBounce(d2, dtrights, wallRc, wallCuttoff); \r\nw5 = wallBounce(d4, dtbottoms, wallRc, wallCuttoff); \r\nw6 = wallBounce(c4, dtbottoms, wallRc, wallCuttoff); \r\nw7 = wallBounce(c1, dtlefts, wallRc, wallCuttoff); \r\nw8 = wallBounce(a1, dtlefts, wallRc, wallCuttoff); \r\n\r\n\r\na1, a2, a3, a4 = rectScatter(l+w8, b1, w1, c3, dtas, scatterRc, scatterCuttoff);\r\nb1, b2, b3, b4 = rectScatter(a2, w3, w2, r+d3, dtbs, scatterRc, scatterCuttoff);\r\nc1, c2, c3, c4 = rectScatter(w7, d1, a4, w6, dtcs, scatterRc, scatterCuttoff);\r\nd1, d2, d3, d4 = rectScatter( c2, w4, b4, w5, dtds, scatterRc, scatterCuttoff);\r\n\r\nslideMix = slide(mix,500,500);\r\n\r\nout1 = c1*slideMix*2 + l*(1-slideMix);\r\nout2 = d4*slideMix*2 + r*(1-slideMix);\r\n",
 					"fontface" : 0,
 					"fontname" : "<Monospaced>",
 					"fontsize" : 11.0,
@@ -129,29 +129,30 @@
 
 			}
  ],
+		"autosave" : 0,
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
+					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 					"bgfillcolor" : 					{
-						"type" : "color",
+						"angle" : 270.0,
+						"autogradient" : 0.0,
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 						"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 						"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-						"angle" : 270.0,
 						"proportion" : 0.39,
-						"autogradient" : 0.0
+						"type" : "color"
 					}
 ,
-					"fontname" : [ "Lato" ],
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
 					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
 					"fontface" : [ 0 ],
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"fontsize" : [ 11.0 ]
+					"fontname" : [ "Lato" ],
+					"fontsize" : [ 11.0 ],
+					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
