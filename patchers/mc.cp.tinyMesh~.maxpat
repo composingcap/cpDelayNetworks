@@ -40,12 +40,36 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-7",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "multichannelsignal" ],
+					"patching_rect" : [ 188.5, 114.0, 59.0, 22.0 ],
+					"text" : "mc.dup~ 2"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-4",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 6,
+					"outlettype" : [ "signal", "bang", "int", "float", "", "list" ],
+					"patching_rect" : [ 273.0, 102.0, 71.5, 22.0 ],
+					"text" : "typeroute~"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-3",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 3,
 					"outlettype" : [ "", "int", "int" ],
-					"patching_rect" : [ 418.0, 193.0, 43.0, 22.0 ],
+					"patching_rect" : [ 416.0, 249.0, 43.0, 22.0 ],
 					"text" : "change"
 				}
 
@@ -57,7 +81,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 393.0, 299.0, 54.0, 22.0 ],
+					"patching_rect" : [ 391.0, 355.0, 54.0, 22.0 ],
 					"text" : "pipe 1 10"
 				}
 
@@ -69,7 +93,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 377.0, 221.0, 51.0, 22.0 ],
+					"patching_rect" : [ 375.0, 277.0, 51.0, 22.0 ],
 					"text" : "deferlow"
 				}
 
@@ -81,7 +105,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "int", "int" ],
-					"patching_rect" : [ 302.0, 201.0, 29.5, 22.0 ],
+					"patching_rect" : [ 300.0, 257.0, 29.5, 22.0 ],
 					"text" : "t i i"
 				}
 
@@ -93,7 +117,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "int", "int" ],
-					"patching_rect" : [ 396.0, 259.0, 32.0, 22.0 ],
+					"patching_rect" : [ 394.0, 315.0, 32.0, 22.0 ],
 					"text" : "t 1 0"
 				}
 
@@ -105,7 +129,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "int" ],
-					"patching_rect" : [ 396.0, 353.0, 87.0, 22.0 ],
+					"patching_rect" : [ 394.0, 409.0, 87.0, 22.0 ],
 					"text" : "adstatus switch"
 				}
 
@@ -117,7 +141,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 145.0, 299.0, 79.0, 22.0 ],
+					"patching_rect" : [ 143.0, 355.0, 79.0, 22.0 ],
 					"text" : "mc.interleave~"
 				}
 
@@ -129,7 +153,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 493.0, 188.0, 21.0, 22.0 ],
+					"patching_rect" : [ 491.0, 244.0, 21.0, 22.0 ],
 					"text" : "t b"
 				}
 
@@ -141,7 +165,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 4,
 					"outlettype" : [ "int", "float", "int", "int" ],
-					"patching_rect" : [ 493.0, 124.0, 56.0, 22.0 ],
+					"patching_rect" : [ 491.0, 180.0, 56.0, 22.0 ],
 					"text" : "dspstate~"
 				}
 
@@ -153,7 +177,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "int", "signal" ],
-					"patching_rect" : [ 302.0, 172.0, 97.0, 22.0 ],
+					"patching_rect" : [ 300.0, 228.0, 97.0, 22.0 ],
 					"text" : "mc.channelcount~"
 				}
 
@@ -165,7 +189,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 307.0, 252.0, 54.0, 22.0 ],
+					"patching_rect" : [ 305.0, 308.0, 54.0, 22.0 ],
 					"text" : "voices $1"
 				}
 
@@ -177,7 +201,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "multichannelsignal", "multichannelsignal" ],
-					"patching_rect" : [ 146.0, 155.0, 91.0, 22.0 ],
+					"patching_rect" : [ 144.0, 211.0, 91.0, 22.0 ],
 					"text" : "mc.deinterleave~"
 				}
 
@@ -189,7 +213,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 144.0, 103.0, 38.0, 22.0 ],
+					"patching_rect" : [ 142.0, 159.0, 38.0, 22.0 ],
 					"text" : "mc.+~"
 				}
 
@@ -213,7 +237,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 273.0, 103.0, 88.0, 22.0 ],
+					"patching_rect" : [ 271.0, 159.0, 88.0, 22.0 ],
 					"text" : "_cp.mcmessages"
 				}
 
@@ -226,7 +250,7 @@
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 144.0, 370.0, 30.0, 30.0 ]
+					"patching_rect" : [ 142.0, 426.0, 30.0, 30.0 ]
 				}
 
 			}
@@ -250,7 +274,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "multichannelsignal", "multichannelsignal" ],
-					"patching_rect" : [ 144.0, 252.0, 121.0, 22.0 ],
+					"patching_rect" : [ 142.0, 308.0, 121.0, 22.0 ],
 					"text" : "mc.poly~ cp.tinyMesh~"
 				}
 
@@ -288,6 +312,20 @@
 				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
 					"source" : [ "obj-3", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-50", 0 ],
+					"source" : [ "obj-4", 5 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-7", 0 ],
+					"source" : [ "obj-4", 0 ]
 				}
 
 			}
@@ -342,7 +380,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-50", 0 ],
+					"destination" : [ "obj-4", 0 ],
 					"source" : [ "obj-51", 1 ]
 				}
 
@@ -425,6 +463,13 @@
 				"patchline" : 				{
 					"destination" : [ "obj-48", 0 ],
 					"source" : [ "obj-63", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-52", 0 ],
+					"source" : [ "obj-7", 0 ]
 				}
 
 			}
